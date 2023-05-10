@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="GENERATOR" content="github.com/mmarkdown/mmark Mmark Markdown Processor - mmark.miek.nl" -->
+<rfc version="3" ipr="trust200902" docName="draft-ietf-otpauth-uri-23" submissionType="IETF" category="std" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
+
+<front>
+<title abbrev="otpauth URI">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-ietf-otpauth-uri-23" stream="IETF" status="standard" name="Internet-Draft"></seriesInfo>
+<author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>Trendyol</organization><address><postal><street>Maslak Mah. Saat Sok. Spine Tower No: 5/19</street>
+<city>Sariyer</city>
+<code>34485</code>
+<country>Turkey</country>
+<region>Istanbul</region>
+</postal><email>ilteris.eroglu@trendyol.com</email>
+<email>me@linuxgemini.space</email>
+</address></author><date/>
+<area>Security</area>
+<workgroup></workgroup>
+<keyword>security</keyword>
+<keyword>otpauth</keyword>
+<keyword>totp</keyword>
+<keyword>hotp</keyword>
+
+<abstract>
+<t><strong>TODO(ilteris)</strong>: fillin</t>
+</abstract>
+
+</front>
+
+<middle>
+
+<section anchor="Introduction"><name>Introduction</name>
+<t><strong>TODO(ilteris)</strong>: fillin</t>
+
+<section anchor="conventions-and-terminology"><name>Conventions and Terminology</name>
+<t>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL
+NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;NOT RECOMMENDED&quot;,
+&quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be interpreted as
+described in BCP 14 <xref target="RFC2119"></xref> <xref target="RFC8174"></xref> when, and only when, they
+appear in all capitals, as shown here.</t>
+<t>This specification uses the Augmented Backus-Naur Form (ABNF) notation
+of <xref target="RFC5234"></xref>.</t>
+<t>This specification uses the terms &quot;TOTP&quot; defined by <xref target="RFC6238"></xref> and &quot;HOTP&quot;
+defined by <xref target="RFC4226"></xref>.</t>
+<t>The terms &quot;request&quot;, &quot;response&quot;, &quot;header field&quot;, and &quot;target URI&quot;
+are imported from <xref target="RFC9110"></xref>.</t>
+<t>This document contains non-normative examples of partial and complete HTTP messages.
+Some examples use a single trailing backslash to indicate line wrapping for long values, as per <xref target="RFC8792"></xref>.
+The character and leading spaces on wrapped lines are not part of the value.</t>
+</section>
+</section>
+
+</middle>
+
+<back>
+<references><name>Normative References</name>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4226.xml"/>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5234.xml"/>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6238.xml"/>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9110.xml"/>
+</references>
+<references><name>Informative References</name>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8792.xml"/>
+</references>
+
+</back>
+
+</rfc>
