@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- name="GENERATOR" content="github.com/mmarkdown/mmark Mmark Markdown Processor - mmark.miek.nl" -->
-<rfc version="3" ipr="trust200902" docName="draft-ietf-otpauth-uri-23" submissionType="IETF" category="std" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
+<rfc version="3" ipr="trust200902" docName="draft-ietf-otpauth-uri-00" submissionType="IETF" category="std" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
 
 <front>
-<title abbrev="otpauth URI">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-ietf-otpauth-uri-23" stream="IETF" status="standard" name="Internet-Draft"></seriesInfo>
+<title abbrev="otpauth URI">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-ietf-otpauth-uri-00" stream="IETF" status="standard" name="Internet-Draft"></seriesInfo>
 <author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>Trendyol</organization><address><postal><street>Maslak Mah. Saat Sok. Spine Tower No: 5/19</street>
 <city>Sariyer</city>
 <code>34485</code>
@@ -20,7 +20,8 @@
 <keyword>hotp</keyword>
 
 <abstract>
-<t><strong>TODO(ilteris)</strong>: fillin</t>
+<t>This document describes a foundational schema for the otpauth URI,
+utilized by TOTP (and/or HOTP) based authenticators.</t>
 </abstract>
 
 </front>
@@ -28,7 +29,13 @@
 <middle>
 
 <section anchor="Introduction"><name>Introduction</name>
-<t><strong>TODO(ilteris)</strong>: fillin</t>
+<t>The otpauth URI is used for easy addition of accounts to TOTP (and/or HOTP)
+authenticators with various options <xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref>.</t>
+<t>Although available as a provisional scheme at IANA <xref target="IANA.URISchemes.Prov.otpauth"></xref>,
+there are many divisions of the usage specification per authenticator hardware and software
+<xref target="Edent.Blog.Post"></xref>.</t>
+<t>This document aims to provide foundational boundaries for the URI format and standardize
+the secret sharing of OTP tokens.</t>
 
 <section anchor="conventions-and-terminology"><name>Conventions and Terminology</name>
 <t>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL
@@ -39,13 +46,17 @@ appear in all capitals, as shown here.</t>
 <t>This specification uses the Augmented Backus-Naur Form (ABNF) notation
 of <xref target="RFC5234"></xref>.</t>
 <t>This specification uses the terms &quot;TOTP&quot; defined by <xref target="RFC6238"></xref> and &quot;HOTP&quot;
-defined by <xref target="RFC4226"></xref>.</t>
-<t>The terms &quot;request&quot;, &quot;response&quot;, &quot;header field&quot;, and &quot;target URI&quot;
-are imported from <xref target="RFC9110"></xref>.</t>
-<t>This document contains non-normative examples of partial and complete HTTP messages.
-Some examples use a single trailing backslash to indicate line wrapping for long values, as per <xref target="RFC8792"></xref>.
-The character and leading spaces on wrapped lines are not part of the value.</t>
+defined by <xref target="RFC4226"></xref>. Both RFCs also mention &quot;secret&quot;, &quot;issuer&quot;, &quot;account&quot;.</t>
+<t>The term &quot;URI&quot; is imported from <xref target="RFC9110"></xref>.</t>
 </section>
+</section>
+
+<section anchor="objective"><name>Objectives</name>
+<t><strong>todo(ilteris)</strong>: continue</t>
+</section>
+
+<section anchor="concept"><name>Concept</name>
+<t><strong>todo(ilteris)</strong>: continue</t>
 </section>
 
 </middle>
@@ -60,8 +71,47 @@ The character and leading spaces on wrapped lines are not part of the value.</t>
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9110.xml"/>
 </references>
 <references><name>Informative References</name>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8792.xml"/>
+<reference anchor="Edent.Blog.Post" target="https://shkspr.mobi/blog/2022/05/why-is-there-no-formal-specification-for-otpauth-urls/">
+  <front>
+    <title>Why is there no formal specification for otpauth URls?</title>
+    <author></author>
+  </front>
+</reference>
+<reference anchor="Google.Authenticator.OSS.Wiki.Key.Format" target="https://github.com/google/google-authenticator/wiki/Key-Uri-Format">
+  <front>
+    <title>Google Authenticator Key Uri Format</title>
+    <author>
+      <organization>Google</organization>
+    </author>
+  </front>
+</reference>
+<reference anchor="IANA.URISchemes.Prov.otpauth" target="https://www.iana.org/assignments/uri-schemes/prov/otpauth">
+  <front>
+    <title>Provisional scheme for the otpauth URI</title>
+    <author>
+      <organization>IANA</organization>
+    </author>
+  </front>
+</reference>
 </references>
+
+<section anchor="Acknowledgements"><name>Acknowledgements</name>
+<t>We would like to thank
+The Google Authenticator Team at Google,
+and others (please let us know, if you've been mistakenly omitted)
+for their valuable input, feedback and general support of this work.</t>
+<t>This document originated from discussions at the Fediverse initially
+written by Terrence Eden.</t>
+</section>
+
+<section anchor="document-history"><name>Document History</name>
+<t>[[ To be removed from the final specification ]]</t>
+<t>-00</t>
+
+<ul spacing="compact">
+<li>first draft</li>
+</ul>
+</section>
 
 </back>
 
