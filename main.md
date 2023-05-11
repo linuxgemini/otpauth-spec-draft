@@ -8,7 +8,7 @@ keyword = ["security", "otpauth", "totp", "hotp"]
 
 [seriesInfo]
 name = "Internet-Draft"
-value = "draft-ietf-otpauth-uri-00"
+value = "draft-linuxgemini-otpauth-uri-00"
 stream = "IETF"
 status = "standard"
     
@@ -78,12 +78,13 @@ The term "URI" is imported from [@!RFC9110].
 # Acknowledgements {#Acknowledgements}
       
 We would like to thank
+Q Misell,
 The Google Authenticator Team at Google,
 and others (please let us know, if you've been mistakenly omitted)
 for their valuable input, feedback and general support of this work.
 
 This document originated from discussions at the Fediverse initially
-written by Terrence Eden.
+written by Terrence Eden [@Edent.Mastodon.Post].
 
 # Document History
 
