@@ -46,7 +46,7 @@ jobs:
         run: ./mmark main.md > build/index.xml
 
       - name: Run xml2rfc
-        run: cd build/ && xml2rfc --html ../index.xml
+        run: cd build/ && xml2rfc --html index.xml && cd ../
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
