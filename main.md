@@ -8,7 +8,7 @@ keyword = ["security", "otpauth", "totp", "hotp"]
 
 [seriesInfo]
 name = "Internet-Draft"
-value = "draft-ietf-otpauth-uri-23"
+value = "draft-ietf-otpauth-uri-00"
 stream = "IETF"
 status = "standard"
     
@@ -31,14 +31,23 @@ organization = "Trendyol"
 
 .# Abstract 
 
-**TODO(ilteris)**: fillin
+This document describes a foundational schema for the otpauth URI,
+utilized by TOTP (and/or HOTP) based authenticators.
 
 {mainmatter}
 
 
 # Introduction {#Introduction}
 
-**TODO(ilteris)**: fillin
+The otpauth URI is used for easy addition of accounts to TOTP (and/or HOTP)
+authenticators with various options [@Google.Authenticator.OSS.Wiki.Key.Format].
+
+Although available as a provisional scheme at IANA [@IANA.URISchemes.Prov.otpauth],
+there are many divisions of the usage specification per authenticator hardware and software
+[@Edent.Blog.Post].
+
+This document aims to provide foundational boundaries for the URI format and standardize
+the secret sharing of OTP tokens.
 
 ## Conventions and Terminology
 
@@ -52,13 +61,62 @@ This specification uses the Augmented Backus-Naur Form (ABNF) notation
 of [@!RFC5234].
 
 This specification uses the terms "TOTP" defined by [@!RFC6238] and "HOTP"
-defined by [@!RFC4226].
+defined by [@!RFC4226]. Both RFCs also mention "secret", "issuer", "account".
 
-The terms "request", "response", "header field", and "target URI"
-are imported from [@!RFC9110].
+The term "URI" is imported from [@!RFC9110].
 
-This document contains non-normative examples of partial and complete HTTP messages.
-Some examples use a single trailing backslash \ to indicate line wrapping for long values, as per [@RFC8792].
-The \ character and leading spaces on wrapped lines are not part of the value.
+# Objectives {#objective}
+
+**todo(ilteris)**: continue
+
+# Concept 
+
+**todo(ilteris)**: continue
 
 {backmatter}
+
+# Acknowledgements {#Acknowledgements}
+      
+We would like to thank
+The Google Authenticator Team at Google,
+and others (please let us know, if you've been mistakenly omitted)
+for their valuable input, feedback and general support of this work.
+
+This document originated from discussions at the Fediverse initially
+written by Terrence Eden.
+
+# Document History
+
+   [[ To be removed from the final specification ]]
+
+   -00 
+
+   *  first draft
+
+<reference anchor="IANA.URISchemes.Prov.otpauth" target="https://www.iana.org/assignments/uri-schemes/prov/otpauth">
+ <front>
+   <title>Provisional scheme for the otpauth URI</title>
+   <author><organization>IANA</organization></author>
+ </front>
+</reference>
+
+<reference anchor="Google.Authenticator.OSS.Wiki.Key.Format" target="https://github.com/google/google-authenticator/wiki/Key-Uri-Format">
+ <front>
+   <title>Google Authenticator Key Uri Format</title>
+   <author><organization>Google</organization></author>
+ </front>
+</reference>
+
+<reference anchor="Edent.Mastodon.Post" target="https://mastodon.social/@Edent/108266107975107228">
+ <front>
+   <title>Fediverse post for "Why is there no formal specification for otpauth URls?"</title>
+   <author><fullname>Terrence Eden</fullname></author>
+ </front>
+</reference>
+
+<reference anchor="Edent.Blog.Post" target="https://shkspr.mobi/blog/2022/05/why-is-there-no-formal-specification-for-otpauth-urls/">
+ <front>
+   <title>Why is there no formal specification for otpauth URls?</title>
+   <author><fullname>Terrence Eden</fullname></author>
+ </front>
+</reference>
