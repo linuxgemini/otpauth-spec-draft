@@ -55,7 +55,7 @@ document references the &quot;Query&quot; parameter (in section 3.4) of this RFC
 <artwork>otpauth://TYPE/LABEL?PARAMETERS
 </artwork>
 
-<section anchor="type-entry"><name><tt>TYPE</tt> entry</name>
+<section anchor="type-entry-required"><name><tt>TYPE</tt> entry (Required)</name>
 <t>The type entry must be one of <tt>totp</tt> or <tt>hotp</tt>, depending on the OTP type.</t>
 </section>
 
