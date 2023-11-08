@@ -54,8 +54,10 @@ document references the &quot;Query&quot; parameter (in section 3.4) of this RFC
 
 <artwork>otpauth://TYPE/LABEL?PARAMETERS
 </artwork>
-<t>## <tt>TYPE</tt> entry (Required)</t>
+
+<section anchor="type-entry"><name><tt>TYPE</tt> entry</name>
 <t>The type entry must be one of <tt>totp</tt> or <tt>hotp</tt>, depending on the OTP type.</t>
+</section>
 
 <section anchor="label-entry-required"><name><tt>LABEL</tt> entry (Required)</name>
 <t>The label entry must be an identifier representing the user. For example, can be an

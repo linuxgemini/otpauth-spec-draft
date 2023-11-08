@@ -1306,31 +1306,34 @@ utilized by TOTP (and/or HOTP) based authenticators.<a href="#section-abstract-1
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-syntax" class="internal xref">Syntax</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
-                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-label-entry-required" class="internal xref"><code>LABEL</code> entry (Required)</a></p>
+                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-type-entry" class="internal xref"><code>TYPE</code> entry</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-parameters-entry-required" class="internal xref"><code>PARAMETERS</code> entry (Required)</a></p>
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-label-entry-required" class="internal xref"><code>LABEL</code> entry (Required)</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
+                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-parameters-entry-required" class="internal xref"><code>PARAMETERS</code> entry (Required)</a></p>
 <ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.1">
-                    <p id="section-toc.1-1.2.2.2.2.1.1"><a href="#section-2.2.1" class="auto internal xref">2.2.1</a>.  <a href="#name-secret-parameter-required" class="internal xref"><code>secret</code> parameter (Required)</a></p>
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.1">
+                    <p id="section-toc.1-1.2.2.3.2.1.1"><a href="#section-2.3.1" class="auto internal xref">2.3.1</a>.  <a href="#name-secret-parameter-required" class="internal xref"><code>secret</code> parameter (Required)</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.2">
-                    <p id="section-toc.1-1.2.2.2.2.2.1"><a href="#section-2.2.2" class="auto internal xref">2.2.2</a>.  <a href="#name-algorithm-parameter-optiona" class="internal xref"><code>algorithm</code> parameter (Optional)</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.2">
+                    <p id="section-toc.1-1.2.2.3.2.2.1"><a href="#section-2.3.2" class="auto internal xref">2.3.2</a>.  <a href="#name-algorithm-parameter-optiona" class="internal xref"><code>algorithm</code> parameter (Optional)</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.3">
-                    <p id="section-toc.1-1.2.2.2.2.3.1"><a href="#section-2.2.3" class="auto internal xref">2.2.3</a>.  <a href="#name-digits-parameter-optional" class="internal xref"><code>digits</code> parameter (Optional)</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.3">
+                    <p id="section-toc.1-1.2.2.3.2.3.1"><a href="#section-2.3.3" class="auto internal xref">2.3.3</a>.  <a href="#name-digits-parameter-optional" class="internal xref"><code>digits</code> parameter (Optional)</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.4">
-                    <p id="section-toc.1-1.2.2.2.2.4.1"><a href="#section-2.2.4" class="auto internal xref">2.2.4</a>.  <a href="#name-counter-parameter-optional-" class="internal xref"><code>counter</code> parameter (Optional, Required if HOTP)</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.4">
+                    <p id="section-toc.1-1.2.2.3.2.4.1"><a href="#section-2.3.4" class="auto internal xref">2.3.4</a>.  <a href="#name-counter-parameter-optional-" class="internal xref"><code>counter</code> parameter (Optional, Required if HOTP)</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.5">
-                    <p id="section-toc.1-1.2.2.2.2.5.1"><a href="#section-2.2.5" class="auto internal xref">2.2.5</a>.  <a href="#name-period-parameter-optional" class="internal xref"><code>period</code> parameter (Optional)</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.5">
+                    <p id="section-toc.1-1.2.2.3.2.5.1"><a href="#section-2.3.5" class="auto internal xref">2.3.5</a>.  <a href="#name-period-parameter-optional" class="internal xref"><code>period</code> parameter (Optional)</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.6">
-                    <p id="section-toc.1-1.2.2.2.2.6.1"><a href="#section-2.2.6" class="auto internal xref">2.2.6</a>.  <a href="#name-issuer-parameter-optional" class="internal xref"><code>issuer</code> parameter (Optional)</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.6">
+                    <p id="section-toc.1-1.2.2.3.2.6.1"><a href="#section-2.3.6" class="auto internal xref">2.3.6</a>.  <a href="#name-issuer-parameter-optional" class="internal xref"><code>issuer</code> parameter (Optional)</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.7">
-                    <p id="section-toc.1-1.2.2.2.2.7.1"><a href="#section-2.2.7" class="auto internal xref">2.2.7</a>.  <a href="#name-other-parameters" class="internal xref">Other parameters</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.7">
+                    <p id="section-toc.1-1.2.2.3.2.7.1"><a href="#section-2.3.7" class="auto internal xref">2.3.7</a>.  <a href="#name-other-parameters" class="internal xref">Other parameters</a></p>
 </li>
                 </ul>
 </li>
@@ -1399,105 +1402,111 @@ document references the "Query" parameter (in section 3.4) of this RFC.<a href="
 <pre>otpauth://TYPE/LABEL?PARAMETERS
 </pre><a href="#section-2-2" class="pilcrow">¶</a>
 </div>
-<p id="section-2-3">## <code>TYPE</code> entry (Required)<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">The type entry must be one of <code>totp</code> or <code>hotp</code>, depending on the OTP type.<a href="#section-2-4" class="pilcrow">¶</a></p>
-<div id="label-entry-required">
+<div id="type-entry">
 <section id="section-2.1">
-        <h3 id="name-label-entry-required">
-<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-label-entry-required" class="section-name selfRef"><code>LABEL</code> entry (Required)</a>
+        <h3 id="name-type-entry">
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-type-entry" class="section-name selfRef"><code>TYPE</code> entry</a>
         </h3>
-<p id="section-2.1-1">The label entry must be an identifier representing the user. For example, can be an
-username, nickname or a person's name.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.1-2">The ABNF representation of this parameter is like below:<a href="#section-2.1-2" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-2.1-3">
-<pre>label = useridentifier
-</pre><a href="#section-2.1-3" class="pilcrow">¶</a>
+<p id="section-2.1-1">The type entry must be one of <code>totp</code> or <code>hotp</code>, depending on the OTP type.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+</section>
 </div>
-<p id="section-2.1-4">Although the Authenticator Team at Google recommends including the secret issuer to be
+<div id="label-entry-required">
+<section id="section-2.2">
+        <h3 id="name-label-entry-required">
+<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-label-entry-required" class="section-name selfRef"><code>LABEL</code> entry (Required)</a>
+        </h3>
+<p id="section-2.2-1">The label entry must be an identifier representing the user. For example, can be an
+username, nickname or a person's name.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-2">The ABNF representation of this parameter is like below:<a href="#section-2.2-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-2.2-3">
+<pre>label = useridentifier
+</pre><a href="#section-2.2-3" class="pilcrow">¶</a>
+</div>
+<p id="section-2.2-4">Although the Authenticator Team at Google recommends including the secret issuer to be
 prepended to the label with the colon character (<code>:</code> or <code>%3A</code>) as a seperator in <span>[<a href="#Google.Authenticator.OSS.Wiki.Key.Format" class="cite xref">Google.Authenticator.OSS.Wiki.Key.Format</a>]</span>,
 the authors of this document believe that the issuer should only be appended as a seperate parameter
-(see next division).<a href="#section-2.1-4" class="pilcrow">¶</a></p>
+(see next division).<a href="#section-2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="parameters-entry-required">
-<section id="section-2.2">
+<section id="section-2.3">
         <h3 id="name-parameters-entry-required">
-<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-parameters-entry-required" class="section-name selfRef"><code>PARAMETERS</code> entry (Required)</a>
+<a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-parameters-entry-required" class="section-name selfRef"><code>PARAMETERS</code> entry (Required)</a>
         </h3>
-<p id="section-2.2-1">This entry is an URI query string. Each parameter must be seperated by the <code>&amp;</code> character and
-should be "URI Safe" (see section 2.2. Reserved Characters in <span>[<a href="#RFC3986" class="cite xref">RFC3986</a>]</span>).<a href="#section-2.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.2-2">The following parameters must be included:<a href="#section-2.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.3-1">This entry is an URI query string. Each parameter must be seperated by the <code>&amp;</code> character and
+should be "URI Safe" (see section 2.2. Reserved Characters in <span>[<a href="#RFC3986" class="cite xref">RFC3986</a>]</span>).<a href="#section-2.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.3-2">The following parameters must be included:<a href="#section-2.3-2" class="pilcrow">¶</a></p>
 <div id="secret-parameter-required">
-<section id="section-2.2.1">
+<section id="section-2.3.1">
           <h4 id="name-secret-parameter-required">
-<a href="#section-2.2.1" class="section-number selfRef">2.2.1. </a><a href="#name-secret-parameter-required" class="section-name selfRef"><code>secret</code> parameter (Required)</a>
+<a href="#section-2.3.1" class="section-number selfRef">2.3.1. </a><a href="#name-secret-parameter-required" class="section-name selfRef"><code>secret</code> parameter (Required)</a>
           </h4>
-<p id="section-2.2.1-1">The secret of the OTP must be provided within this parameter. The secret must be
+<p id="section-2.3.1-1">The secret of the OTP must be provided within this parameter. The secret must be
 encoded in Base32. The padding specified in <span>[<a href="#RFC3548" class="cite xref">RFC3548</a>]</span> section 2.2 is not required
-and should be omitted.<a href="#section-2.2.1-1" class="pilcrow">¶</a></p>
+and should be omitted.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="algorithm-parameter-optional">
-<section id="section-2.2.2">
+<section id="section-2.3.2">
           <h4 id="name-algorithm-parameter-optiona">
-<a href="#section-2.2.2" class="section-number selfRef">2.2.2. </a><a href="#name-algorithm-parameter-optiona" class="section-name selfRef"><code>algorithm</code> parameter (Optional)</a>
+<a href="#section-2.3.2" class="section-number selfRef">2.3.2. </a><a href="#name-algorithm-parameter-optiona" class="section-name selfRef"><code>algorithm</code> parameter (Optional)</a>
           </h4>
-<p id="section-2.2.2-1">The algorithm used for TOTP or HOTP tokens should be provided
-in this parameter. When not provided, <code>SHA1</code> is assumed by default.<a href="#section-2.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.2.2-2">Some authenticators at the time writing of this document ignore this parameter, the authors of
-this document believes that this parameter must be supported in all cases.<a href="#section-2.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-1">The algorithm used for TOTP or HOTP tokens should be provided
+in this parameter. When not provided, <code>SHA1</code> is assumed by default.<a href="#section-2.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-2">Some authenticators at the time writing of this document ignore this parameter, the authors of
+this document believes that this parameter must be supported in all cases.<a href="#section-2.3.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="digits-parameter-optional">
-<section id="section-2.2.3">
+<section id="section-2.3.3">
           <h4 id="name-digits-parameter-optional">
-<a href="#section-2.2.3" class="section-number selfRef">2.2.3. </a><a href="#name-digits-parameter-optional" class="section-name selfRef"><code>digits</code> parameter (Optional)</a>
+<a href="#section-2.3.3" class="section-number selfRef">2.3.3. </a><a href="#name-digits-parameter-optional" class="section-name selfRef"><code>digits</code> parameter (Optional)</a>
           </h4>
-<p id="section-2.2.3-1">The amount of digits to be outputted for TOTP or HOTP tokens should be provided
-in this parameter. When not provided, 6 digits is assumed by default.<a href="#section-2.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.2.3-2">Some authenticators at the time writing of this document ignore this parameter, the authors of
-this document believes that this parameter must be supported in all cases.<a href="#section-2.2.3-2" class="pilcrow">¶</a></p>
+<p id="section-2.3.3-1">The amount of digits to be outputted for TOTP or HOTP tokens should be provided
+in this parameter. When not provided, 6 digits is assumed by default.<a href="#section-2.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.3-2">Some authenticators at the time writing of this document ignore this parameter, the authors of
+this document believes that this parameter must be supported in all cases.<a href="#section-2.3.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="counter-parameter-optional-required-if-hotp">
-<section id="section-2.2.4">
+<section id="section-2.3.4">
           <h4 id="name-counter-parameter-optional-">
-<a href="#section-2.2.4" class="section-number selfRef">2.2.4. </a><a href="#name-counter-parameter-optional-" class="section-name selfRef"><code>counter</code> parameter (Optional, Required if HOTP)</a>
+<a href="#section-2.3.4" class="section-number selfRef">2.3.4. </a><a href="#name-counter-parameter-optional-" class="section-name selfRef"><code>counter</code> parameter (Optional, Required if HOTP)</a>
           </h4>
-<p id="section-2.2.4-1">The provisioning counter for TOTP or HOTP tokens should be provided
-in this parameter.<a href="#section-2.2.4-1" class="pilcrow">¶</a></p>
-<p id="section-2.2.4-2">This parameter is required if the token type is HOTP.<a href="#section-2.2.4-2" class="pilcrow">¶</a></p>
+<p id="section-2.3.4-1">The provisioning counter for TOTP or HOTP tokens should be provided
+in this parameter.<a href="#section-2.3.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.4-2">This parameter is required if the token type is HOTP.<a href="#section-2.3.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="period-parameter-optional">
-<section id="section-2.2.5">
+<section id="section-2.3.5">
           <h4 id="name-period-parameter-optional">
-<a href="#section-2.2.5" class="section-number selfRef">2.2.5. </a><a href="#name-period-parameter-optional" class="section-name selfRef"><code>period</code> parameter (Optional)</a>
+<a href="#section-2.3.5" class="section-number selfRef">2.3.5. </a><a href="#name-period-parameter-optional" class="section-name selfRef"><code>period</code> parameter (Optional)</a>
           </h4>
-<p id="section-2.2.5-1">The refresh period (in seconds) for TOTP or HOTP tokens should be provided
-in this parameter. When not provided, 30 seconds is assumed by default.<a href="#section-2.2.5-1" class="pilcrow">¶</a></p>
-<p id="section-2.2.5-2">Some authenticators at the time writing of this document ignore this parameter, the authors of
-this document believes that this parameter must be supported in all cases.<a href="#section-2.2.5-2" class="pilcrow">¶</a></p>
+<p id="section-2.3.5-1">The refresh period (in seconds) for TOTP or HOTP tokens should be provided
+in this parameter. When not provided, 30 seconds is assumed by default.<a href="#section-2.3.5-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.5-2">Some authenticators at the time writing of this document ignore this parameter, the authors of
+this document believes that this parameter must be supported in all cases.<a href="#section-2.3.5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="issuer-parameter-optional">
-<section id="section-2.2.6">
+<section id="section-2.3.6">
           <h4 id="name-issuer-parameter-optional">
-<a href="#section-2.2.6" class="section-number selfRef">2.2.6. </a><a href="#name-issuer-parameter-optional" class="section-name selfRef"><code>issuer</code> parameter (Optional)</a>
+<a href="#section-2.3.6" class="section-number selfRef">2.3.6. </a><a href="#name-issuer-parameter-optional" class="section-name selfRef"><code>issuer</code> parameter (Optional)</a>
           </h4>
-<p id="section-2.2.6-1">The issuer name of TOTP or HOTP tokens should be provided
-in this parameter.<a href="#section-2.2.6-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.6-1">The issuer name of TOTP or HOTP tokens should be provided
+in this parameter.<a href="#section-2.3.6-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="other-parameters">
-<section id="section-2.2.7">
+<section id="section-2.3.7">
           <h4 id="name-other-parameters">
-<a href="#section-2.2.7" class="section-number selfRef">2.2.7. </a><a href="#name-other-parameters" class="section-name selfRef">Other parameters</a>
+<a href="#section-2.3.7" class="section-number selfRef">2.3.7. </a><a href="#name-other-parameters" class="section-name selfRef">Other parameters</a>
           </h4>
-<p id="section-2.2.7-1">Vendors may include other parameters in their issued otpauth URIs. These parameters are
+<p id="section-2.3.7-1">Vendors may include other parameters in their issued otpauth URIs. These parameters are
 not necessary for the function of TOTP or HOTP tokens and not necessary to be included in this
-document.<a href="#section-2.2.7-1" class="pilcrow">¶</a></p>
-<p id="section-2.2.7-2"><strong>todo(ilteris)</strong>: provide examples, are abnf notations necessary?<a href="#section-2.2.7-2" class="pilcrow">¶</a></p>
+document.<a href="#section-2.3.7-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.7-2"><strong>todo(ilteris)</strong>: provide examples, are abnf notations necessary?<a href="#section-2.3.7-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
