@@ -1306,10 +1306,10 @@ utilized by TOTP (and/or HOTP) based authenticators.<a href="#section-abstract-1
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-syntax" class="internal xref">Syntax</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
-                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-label-entry-required" class="internal xref">LABEL entry (Required)</a></p>
+                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-label-entry-required" class="internal xref"><code>LABEL</code> entry (Required)</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-parameters-entry-required" class="internal xref">PARAMETERS entry (Required)</a></p>
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-parameters-entry-required" class="internal xref"><code>PARAMETERS</code> entry (Required)</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.1">
                     <p id="section-toc.1-1.2.2.2.2.1.1"><a href="#section-2.2.1" class="auto internal xref">2.2.1</a>.  <a href="#name-secret-parameter-required" class="internal xref"><code>secret</code> parameter (Required)</a></p>
@@ -1399,12 +1399,12 @@ document references the "Query" parameter (in section 3.4) of this RFC.<a href="
 <pre>otpauth://TYPE/LABEL?PARAMETERS
 </pre><a href="#section-2-2" class="pilcrow">¶</a>
 </div>
-<p id="section-2-3">## TYPE entry (Required)<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-3">## <code>TYPE</code> entry (Required)<a href="#section-2-3" class="pilcrow">¶</a></p>
 <p id="section-2-4">The type entry must be one of <code>totp</code> or <code>hotp</code>, depending on the OTP type.<a href="#section-2-4" class="pilcrow">¶</a></p>
 <div id="label-entry-required">
 <section id="section-2.1">
         <h3 id="name-label-entry-required">
-<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-label-entry-required" class="section-name selfRef">LABEL entry (Required)</a>
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-label-entry-required" class="section-name selfRef"><code>LABEL</code> entry (Required)</a>
         </h3>
 <p id="section-2.1-1">The label entry must be an identifier representing the user. For example, can be an
 username, nickname or a person's name.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
@@ -1422,7 +1422,7 @@ the authors of this document believe that the issuer should only be appended as 
 <div id="parameters-entry-required">
 <section id="section-2.2">
         <h3 id="name-parameters-entry-required">
-<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-parameters-entry-required" class="section-name selfRef">PARAMETERS entry (Required)</a>
+<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-parameters-entry-required" class="section-name selfRef"><code>PARAMETERS</code> entry (Required)</a>
         </h3>
 <p id="section-2.2-1">This entry is an URI query string. Each parameter must be seperated by the <code>&amp;</code> character and
 should be "URI Safe" (see section 2.2. Reserved Characters in <span>[<a href="#RFC3986" class="cite xref">RFC3986</a>]</span>).<a href="#section-2.2-1" class="pilcrow">¶</a></p>

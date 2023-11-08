@@ -54,10 +54,10 @@ document references the &quot;Query&quot; parameter (in section 3.4) of this RFC
 
 <artwork>otpauth://TYPE/LABEL?PARAMETERS
 </artwork>
-<t>## TYPE entry (Required)</t>
+<t>## <tt>TYPE</tt> entry (Required)</t>
 <t>The type entry must be one of <tt>totp</tt> or <tt>hotp</tt>, depending on the OTP type.</t>
 
-<section anchor="label-entry-required"><name>LABEL entry (Required)</name>
+<section anchor="label-entry-required"><name><tt>LABEL</tt> entry (Required)</name>
 <t>The label entry must be an identifier representing the user. For example, can be an
 username, nickname or a person's name.</t>
 <t>The ABNF representation of this parameter is like below:</t>
@@ -70,7 +70,7 @@ the authors of this document believe that the issuer should only be appended as 
 (see next division).</t>
 </section>
 
-<section anchor="parameters-entry-required"><name>PARAMETERS entry (Required)</name>
+<section anchor="parameters-entry-required"><name><tt>PARAMETERS</tt> entry (Required)</name>
 <t>This entry is an URI query string. Each parameter must be seperated by the <tt>&amp;</tt> character and
 should be &quot;URI Safe&quot; (see section 2.2. Reserved Characters in <xref target="RFC3986"></xref>).</t>
 <t>The following parameters must be included:</t>
