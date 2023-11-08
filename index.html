@@ -15,7 +15,7 @@ utilized by TOTP (and/or HOTP) based authenticators.
 <meta content="otpauth" name="keyword">
 <meta content="totp" name="keyword">
 <meta content="hotp" name="keyword">
-<meta content="draft-linuxgemini-otpauth-uri-01" name="ietf.draft">
+<meta content="draft-linuxgemini-otpauth-uri-02" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.18.2
     Python 3.10.13
@@ -1223,7 +1223,7 @@ li > p:last-of-type:only-child {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-linuxgemini-otpauth-uri-01</dd>
+<dd class="internet-draft">draft-linuxgemini-otpauth-uri-02</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
 <time datetime="2023-11-08" class="published">8 November 2023</time>
@@ -1236,6 +1236,7 @@ li > p:last-of-type:only-child {
 <dd class="authors">
 <div class="author">
       <div class="author-name">I. Y. Eroglu</div>
+<div class="org">independent</div>
 </div>
 </dd>
 </dl>
@@ -1340,19 +1341,22 @@ utilized by TOTP (and/or HOTP) based authenticators.<a href="#section-abstract-1
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-document-history" class="internal xref">Document History</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-document-history" class="internal xref">Document History</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1402,6 +1406,27 @@ document references the "Query" parameter (in section 3.4) of this RFC.<a href="
 <pre>otpauth://TYPE/LABEL?PARAMETERS
 </pre><a href="#section-2-2" class="pilcrow">¶</a>
 </div>
+<p id="section-2-3">The approximate ABNF representation of this is like below:<a href="#section-2-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-2-4">
+<pre>otpauth-uri             =       "otpauth://" uri-type "/" uri-label "?" uri-parameters
+uri-type                =       "totp" / "hotp"
+uri-label               =       *VCHAR
+uri-parameters          =       "secret=" *base-32 [ *uri-optional-parameters ]
+
+uri-optional-parameters =       ("&amp;algorithm=" otp-algorithm) / ("&amp;digits=" otp-digits)
+uri-optional-parameters =/      ("&amp;counter=" *DIGIT) / ("&amp;period=" *DIGIT) / ("&amp;issuer=" *VCHAR)
+uri-optional-parameters =/      ("&amp;" *VCHAR "=" *VCHAR)
+                                        ; Please refer to RFC3986 for handling complex names
+
+otp-algorithm           =       "SHA1" / "SHA256" / "SHA512"
+
+otp-digits              =       %x36-38
+                                        ; 6-8
+
+base-32                 =       %x41-5A / %x32-37
+                                        ; A-Z2-7
+</pre><a href="#section-2-4" class="pilcrow">¶</a>
+</div>
 <div id="type-entry-required">
 <section id="section-2.1">
         <h3 id="name-type-entry-required">
@@ -1417,15 +1442,10 @@ document references the "Query" parameter (in section 3.4) of this RFC.<a href="
         </h3>
 <p id="section-2.2-1">The label entry must be an identifier representing the user. For example, can be an
 username, nickname or a person's name.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.2-2">The ABNF representation of this parameter is like below:<a href="#section-2.2-2" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-2.2-3">
-<pre>label = useridentifier
-</pre><a href="#section-2.2-3" class="pilcrow">¶</a>
-</div>
-<p id="section-2.2-4">Although the Authenticator Team at Google recommends including the secret issuer to be
+<p id="section-2.2-2">Although the Authenticator Team at Google recommends including the secret issuer to be
 prepended to the label with the colon character (<code>:</code> or <code>%3A</code>) as a seperator in <span>[<a href="#Google.Authenticator.OSS.Wiki.Key.Format" class="cite xref">Google.Authenticator.OSS.Wiki.Key.Format</a>]</span>,
 the authors of this document believe that the issuer should only be appended as a seperate parameter
-(see next division).<a href="#section-2.2-4" class="pilcrow">¶</a></p>
+(see next division).<a href="#section-2.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="parameters-entry-required">
@@ -1444,6 +1464,11 @@ should be "URI Safe" (see section 2.2. Reserved Characters in <span>[<a href="#R
 <p id="section-2.3.1-1">The secret of the OTP must be provided within this parameter. The secret must be
 encoded in Base32. The padding specified in <span>[<a href="#RFC3548" class="cite xref">RFC3548</a>]</span> section 2.2 is not required
 and should be omitted.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.1-2">For example:<a href="#section-2.3.1-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-2.3.1-3">
+<pre>otpauth://totp/ietfuser?secret=NBSWY3DPFQQHO33SNRSAU
+</pre><a href="#section-2.3.1-3" class="pilcrow">¶</a>
+</div>
 </section>
 </div>
 <div id="algorithm-parameter-optional">
@@ -1506,16 +1531,30 @@ in this parameter.<a href="#section-2.3.6-1" class="pilcrow">¶</a></p>
 <p id="section-2.3.7-1">Vendors may include other parameters in their issued otpauth URIs. These parameters are
 not necessary for the function of TOTP or HOTP tokens and not necessary to be included in this
 document.<a href="#section-2.3.7-1" class="pilcrow">¶</a></p>
-<p id="section-2.3.7-2"><strong>todo(ilteris)</strong>: provide examples, are abnf notations necessary?<a href="#section-2.3.7-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
 </section>
 </div>
+<div id="Examples">
 <section id="section-3">
+      <h2 id="name-examples">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-examples" class="section-name selfRef">Examples</a>
+      </h2>
+<div class="alignLeft art-text artwork" id="section-3-1">
+<pre>otpauth://totp/ietfuser?secret=NBSWY3DPFQQHO33SNRSAU
+
+otpauth://hotp/user_for_ietf?secret=NEQGY33WMUQGQ2LENFXGOIDUMV4HI&amp;counter=192
+
+otpauth://totp/deadbeef?issuer=cafe&amp;secret=NVUXQZLEEBXXEZDFOIQGC5BANRSWC43U&amp;digits=8&amp;period=15&amp;algorithm=SHA256
+</pre><a href="#section-3-1" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<section id="section-4">
       <h2 id="name-normative-references">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1552,9 +1591,9 @@ document.<a href="#section-2.3.7-1" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 </dl>
 </section>
-<section id="section-4">
+<section id="section-5">
       <h2 id="name-informative-references">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
       </h2>
 <dl class="references">
 <dt id="Edent.Blog.Post">[Edent.Blog.Post]</dt>
@@ -1582,6 +1621,7 @@ document.<a href="#section-2.3.7-1" class="pilcrow">¶</a></p>
       </h2>
 <p id="appendix-A-1">We would like to thank
 Q Misell,
+Terrence Eden,
 The Google Authenticator Team at Google,
 and others (please let us know, if you've been mistakenly omitted)
 for their valuable input, feedback and general support of this work.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
@@ -1595,16 +1635,25 @@ written by Terrence Eden <span>[<a href="#Edent.Mastodon.Post" class="cite xref"
 <a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-document-history" class="section-name selfRef">Document History</a>
       </h2>
 <p id="appendix-B-1">[[ To be removed from the final specification ]]<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<p id="appendix-B-2">-01<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">-02<a href="#appendix-B-2" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="appendix-B-3.1">written the initial spec provided by google <span>[<a href="#Google.Authenticator.OSS.Wiki.Key.Format" class="cite xref">Google.Authenticator.OSS.Wiki.Key.Format</a>]</span><a href="#appendix-B-3.1" class="pilcrow">¶</a>
+<li class="compact" id="appendix-B-3.1">written approximate abnf definition<a href="#appendix-B-3.1" class="pilcrow">¶</a>
 </li>
-        <li class="compact" id="appendix-B-3.2">added author's comments<a href="#appendix-B-3.2" class="pilcrow">¶</a>
+        <li class="compact" id="appendix-B-3.2">written examples<a href="#appendix-B-3.2" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="appendix-B-3.3">reordered some portions<a href="#appendix-B-3.3" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-B-4">-00<a href="#appendix-B-4" class="pilcrow">¶</a></p>
+<p id="appendix-B-4">-01<a href="#appendix-B-4" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="appendix-B-5.1">first draft<a href="#appendix-B-5.1" class="pilcrow">¶</a>
+<li class="compact" id="appendix-B-5.1">written the initial spec provided by google <span>[<a href="#Google.Authenticator.OSS.Wiki.Key.Format" class="cite xref">Google.Authenticator.OSS.Wiki.Key.Format</a>]</span><a href="#appendix-B-5.1" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="appendix-B-5.2">added author's comments<a href="#appendix-B-5.2" class="pilcrow">¶</a>
+</li>
+      </ul>
+<p id="appendix-B-6">-00<a href="#appendix-B-6" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="appendix-B-7.1">first draft<a href="#appendix-B-7.1" class="pilcrow">¶</a>
 </li>
       </ul>
 </section>
@@ -1616,6 +1665,7 @@ written by Terrence Eden <span>[<a href="#Edent.Mastodon.Post" class="cite xref"
       </h2>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Ilteris Yagiztegin Eroglu</span></div>
+<div dir="auto" class="left"><span class="org">independent</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:me@linuxgemini.space" class="email">me@linuxgemini.space</a>
