@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- name="GENERATOR" content="github.com/mmarkdown/mmark Mmark Markdown Processor - mmark.miek.nl" -->
-<rfc version="3" ipr="trust200902" docName="draft-linuxgemini-otpauth-uri-00" submissionType="IETF" category="std" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
+<rfc version="3" ipr="trust200902" docName="draft-linuxgemini-otpauth-uri-01" submissionType="IETF" category="std" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
 
 <front>
-<title abbrev="otpauth URI">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-00" stream="IETF" status="standard" name="Internet-Draft"></seriesInfo>
-<author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>No affiliation</organization><address><postal><street></street>
-<country>Turkey</country>
-<region>Ankara</region>
+<title abbrev="otpauth URI">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-01" stream="IETF" status="standard" name="Internet-Draft"></seriesInfo>
+<author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization></organization><address><postal><street></street>
 </postal><email>me@linuxgemini.space</email>
-<email>ilteris@asenkron.com.tr</email>
 </address></author><date/>
 <area>Security</area>
 <workgroup></workgroup>
@@ -45,16 +42,84 @@ appear in all capitals, as shown here.</t>
 of <xref target="RFC5234"></xref>.</t>
 <t>This specification uses the terms &quot;TOTP&quot; defined by <xref target="RFC6238"></xref> and &quot;HOTP&quot;
 defined by <xref target="RFC4226"></xref>. Both RFCs also mention &quot;secret&quot;, &quot;issuer&quot;, &quot;account&quot;.</t>
-<t>The term &quot;URI&quot; is imported from <xref target="RFC9110"></xref>.</t>
+<t>The term &quot;URI&quot; is imported from <xref target="RFC3986"></xref>. Mentions of &quot;query string&quot; in this
+document references the &quot;Query&quot; parameter (in section 3.4) of this RFC.</t>
+<t>The Base16, Base32, and Base64 Data Encodings mentioned here are imported from
+<xref target="RFC4648"></xref> with the same name.</t>
 </section>
 </section>
 
-<section anchor="objective"><name>Objectives</name>
-<t><strong>todo(ilteris)</strong>: continue</t>
+<section anchor="syntax"><name>Syntax</name>
+<t>The URI must be formatted like below:</t>
+
+<artwork>otpauth://TYPE/LABEL?PARAMETERS
+</artwork>
+<t>## TYPE entry (Required)</t>
+<t>The type entry must be one of <tt>totp</tt> or <tt>hotp</tt>, depending on the OTP type.</t>
+
+<section anchor="label-entry-required"><name>LABEL entry (Required)</name>
+<t>The label entry must be an identifier representing the user. For example, can be an
+username, nickname or a person's name.</t>
+<t>The ABNF representation of this parameter is like below:</t>
+
+<artwork>label = useridentifier
+</artwork>
+<t>Although the Authenticator Team at Google recommends including the secret issuer to be
+prepended to the label with the colon character (<tt>:</tt> or <tt>%3A</tt>) as a seperator in <xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref>,
+the authors of this document believe that the issuer should only be appended as a seperate parameter
+(see next division).</t>
 </section>
 
-<section anchor="concept"><name>Concept</name>
-<t><strong>todo(ilteris)</strong>: continue</t>
+<section anchor="parameters-entry-required"><name>PARAMETERS entry (Required)</name>
+<t>This entry is an URI query string. Each parameter must be seperated by the <tt>&amp;</tt> character and
+should be &quot;URI Safe&quot; (see section 2.2. Reserved Characters in <xref target="RFC3986"></xref>).</t>
+<t>The following parameters must be included:</t>
+
+<section anchor="secret-parameter-required"><name><tt>secret</tt> parameter (Required)</name>
+<t>The secret of the OTP must be provided within this parameter. The secret must be
+encoded in Base32. The padding specified in <xref target="RFC3548"></xref> section 2.2 is not required
+and should be omitted.</t>
+</section>
+
+<section anchor="algorithm-parameter-optional"><name><tt>algorithm</tt> parameter (Optional)</name>
+<t>The algorithm used for TOTP or HOTP tokens should be provided
+in this parameter. When not provided, <tt>SHA1</tt> is assumed by default.</t>
+<t>Some authenticators at the time writing of this document ignore this parameter, the authors of
+this document believes that this parameter must be supported in all cases.</t>
+</section>
+
+<section anchor="digits-parameter-optional"><name><tt>digits</tt> parameter (Optional)</name>
+<t>The amount of digits to be outputted for TOTP or HOTP tokens should be provided
+in this parameter. When not provided, 6 digits is assumed by default.</t>
+<t>Some authenticators at the time writing of this document ignore this parameter, the authors of
+this document believes that this parameter must be supported in all cases.</t>
+</section>
+
+<section anchor="counter-parameter-optional-required-if-hotp"><name><tt>counter</tt> parameter (Optional, Required if HOTP)</name>
+<t>The provisioning counter for TOTP or HOTP tokens should be provided
+in this parameter.</t>
+<t>This parameter is required if the token type is HOTP.</t>
+</section>
+
+<section anchor="period-parameter-optional"><name><tt>period</tt> parameter (Optional)</name>
+<t>The refresh period (in seconds) for TOTP or HOTP tokens should be provided
+in this parameter. When not provided, 30 seconds is assumed by default.</t>
+<t>Some authenticators at the time writing of this document ignore this parameter, the authors of
+this document believes that this parameter must be supported in all cases.</t>
+</section>
+
+<section anchor="issuer-parameter-optional"><name><tt>issuer</tt> parameter (Optional)</name>
+<t>The issuer name of TOTP or HOTP tokens should be provided
+in this parameter.</t>
+</section>
+
+<section anchor="other-parameters"><name>Other parameters</name>
+<t>Vendors may include other parameters in their issued otpauth URIs. These parameters are
+not necessary for the function of TOTP or HOTP tokens and not necessary to be included in this
+document.</t>
+<t><strong>todo(ilteris)</strong>: provide examples, are abnf notations necessary?</t>
+</section>
+</section>
 </section>
 
 </middle>
@@ -62,11 +127,13 @@ defined by <xref target="RFC4226"></xref>. Both RFCs also mention &quot;secret&q
 <back>
 <references><name>Normative References</name>
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3548.xml"/>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3986.xml"/>
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4226.xml"/>
+<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4648.xml"/>
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5234.xml"/>
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6238.xml"/>
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9110.xml"/>
 </references>
 <references><name>Informative References</name>
 <reference anchor="Edent.Blog.Post" target="https://shkspr.mobi/blog/2022/05/why-is-there-no-formal-specification-for-otpauth-urls/">
@@ -111,6 +178,12 @@ written by Terrence Eden <xref target="Edent.Mastodon.Post"></xref>.</t>
 
 <section anchor="document-history"><name>Document History</name>
 <t>[[ To be removed from the final specification ]]</t>
+<t>-01</t>
+
+<ul spacing="compact">
+<li>written the initial spec provided by google <xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref></li>
+<li>added author's comments</li>
+</ul>
 <t>-00</t>
 
 <ul spacing="compact">
