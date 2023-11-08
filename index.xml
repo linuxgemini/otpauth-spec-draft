@@ -4,7 +4,7 @@
 
 <front>
 <title abbrev="otpauth URI">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-00" stream="IETF" status="standard" name="Internet-Draft"></seriesInfo>
-<author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>Trendyol</organization><address><postal><street></street>
+<author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>No affiliation</organization><address><postal><street></street>
 <country>Turkey</country>
 <region>Ankara</region>
 </postal><email>me@linuxgemini.space</email>
