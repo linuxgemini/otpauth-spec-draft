@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- name="GENERATOR" content="github.com/mmarkdown/mmark Mmark Markdown Processor - mmark.miek.nl" -->
-<rfc version="3" ipr="trust200902" docName="draft-linuxgemini-otpauth-uri-03" submissionType="IETF" category="info" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
+<rfc version="3" ipr="trust200902" docName="draft-linuxgemini-otpauth-uri-04" submissionType="IETF" category="info" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
 
 <front>
-<title abbrev="otpauth URI spec">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-03" stream="IETF" status="informational" name="RFC"></seriesInfo>
+<title abbrev="otpauth URI spec">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-04" stream="IETF" status="informational" name="RFC"></seriesInfo>
 <author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>independent</organization><address><postal><street></street>
 </postal><email>ietf@linuxgemini.space</email>
 </address></author><date/>
@@ -65,37 +65,36 @@ from <xref target="RFC4648"></xref> with the same name.</t>
 </artwork>
 <t>An approximate ABNF representation of this is like below:</t>
 
-<artwork>otpauth-uri	= &quot;otpauth://&quot; uri-type &quot;/&quot; uri-label &quot;?&quot; uri-parameters
-uri-type	= &quot;totp&quot; / &quot;hotp&quot;
-uri-label	= *VCHAR
-uri-parameters	= &quot;secret=&quot; *base-32 [ *uri-opt-parameters ]
+<artwork>otpauth-uri    = &quot;otpauth://&quot; uri-type &quot;/&quot; uri-label &quot;?&quot; uri-parameters
+uri-type       = &quot;totp&quot; / &quot;hotp&quot;
+uri-label      = *VCHAR
+uri-parameters = &quot;secret=&quot; *base-32 [ *uri-opt-parameters ]
 
 uri-opt-parameters =  (&quot;&amp;algorithm=&quot; otp-algorithm)
 uri-opt-parameters =/ (&quot;&amp;digits=&quot; otp-digits)
 uri-opt-parameters =/ (&quot;&amp;counter=&quot; *DIGIT) / (&quot;&amp;period=&quot; *DIGIT)
 uri-opt-parameters =/ (&quot;&amp;issuer=&quot; *VCHAR) / (&quot;&amp;&quot; *VCHAR &quot;=&quot; *VCHAR)
-			; Please refer to RFC3986 for handling
-			; complex names
+                        ; Please refer to RFC3986 for handling
+                        ; complex names
 
-otp-algorithm	= &quot;SHA1&quot; / &quot;SHA256&quot; / &quot;SHA512&quot;
+otp-algorithm = &quot;SHA1&quot; / &quot;SHA256&quot; / &quot;SHA512&quot;
 
-otp-digits	= %x36-38
-			; 6-8
+otp-digits    = %x36-38
+                ; 6-8
 
-base-32		= %x41-5A / %x32-37
-			; A-Z2-7
-
-DIGIT		= %x30-39
-			; 0-9
-VCHAR		= %x21-7E
-			; visible (printing) characters
+base-32 = %x41-5A / %x32-37
+                ; A-Z2-7
+DIGIT   = %x30-39
+                ; 0-9
+VCHAR   = %x21-7E
+                ; visible (printing) characters
 </artwork>
 
-<section anchor="type-entry-required"><name><tt>TYPE</tt> entry (Required)</name>
+<section anchor="type-entry-required"><name><tt>TYPE</tt> entry (REQUIRED)</name>
 <t>The type entry MUST be one of <tt>totp</tt> or <tt>hotp</tt>, depending on the OTP type.</t>
 </section>
 
-<section anchor="label-entry-required"><name><tt>LABEL</tt> entry (Required)</name>
+<section anchor="label-entry-required"><name><tt>LABEL</tt> entry (REQUIRED)</name>
 <t>The label entry MUST be an identifier representing the user. For example,
 can be an username, nickname or a person's name.</t>
 <t>Although the Authenticator Team at Google recommends including the secret
@@ -105,61 +104,65 @@ of this document believe that the issuer should only be appended as a
 seperate parameter(see next division).</t>
 </section>
 
-<section anchor="parameters-entry-required"><name><tt>PARAMETERS</tt> entry (Required)</name>
+<section anchor="parameters-entry-required"><name><tt>PARAMETERS</tt> entry (REQUIRED)</name>
 <t>This entry is an URI query string. Each parameter MUST be seperated by the
-<tt>&amp;</tt> character and should be &quot;URI Safe&quot; (see section 2.2. Reserved
+<tt>&amp;</tt> character and SHOULD BE &quot;URI Safe&quot; (see section 2.2. Reserved
 Characters in <xref target="RFC3986"></xref>).</t>
 <t>The following parameters SHOULD BE included:</t>
 
-<section anchor="secret-parameter-required"><name><tt>secret</tt> parameter (Required)</name>
+<section anchor="secret-parameter-required"><name><tt>secret</tt> parameter (REQUIRED)</name>
 <t>The secret of the OTP MUST be provided within this parameter. The secret
 MUST be encoded in Base32. The padding specified in <xref target="RFC4648"></xref>
-section 2.2 is not required and should be omitted.</t>
+section 2.2 is not required and SHOULD BE omitted.</t>
 <t>For example:</t>
 
 <artwork>otpauth://totp/ietfuser?secret=NBSWY3DPFQQHO33SNRSAU
 </artwork>
 </section>
 
-<section anchor="algorithm-parameter-optional"><name><tt>algorithm</tt> parameter (Optional)</name>
-<t>The algorithm used for TOTP or HOTP tokens should be provided
+<section anchor="algorithm-parameter-optional"><name><tt>algorithm</tt> parameter (OPTIONAL)</name>
+<t>The algorithm used for TOTP or HOTP tokens SHOULD BE provided
 in this parameter. When not provided, <tt>SHA1</tt> is assumed by default.</t>
+<t>The ABNF representation is defined below:</t>
+
+<artwork>otp-algorithm   = &quot;SHA1&quot; / &quot;SHA256&quot; / &quot;SHA512&quot;
+</artwork>
 <t>Some authenticators at the time writing of this document ignore this
 parameter, the authors of this document believes that this parameter
 MUST be supported in all cases.</t>
 </section>
 
-<section anchor="digits-parameter-optional"><name><tt>digits</tt> parameter (Optional)</name>
-<t>The amount of digits to be outputted for TOTP or HOTP tokens should be
-provided in this parameter. When not provided, 6 digits is assumed
-by default.</t>
+<section anchor="digits-parameter-optional"><name><tt>digits</tt> parameter (OPTIONAL)</name>
+<t>The amount of digits to be outputted for TOTP or HOTP tokens
+SHOULD BE provided in this parameter. This value MUST be
+between 6 and 8. When not provided, 6 digits is assumed by default.</t>
 <t>Some authenticators at the time writing of this document ignore this
 parameter, the authors of this document believes that this parameter
 MUST be supported in all cases.</t>
 </section>
 
-<section anchor="counter-parameter-optional-required-if-hotp"><name><tt>counter</tt> parameter (Optional, Required if HOTP)</name>
-<t>The provisioning counter for TOTP or HOTP tokens should be provided
+<section anchor="counter-parameter-optional-required-if-hotp"><name><tt>counter</tt> parameter (OPTIONAL, REQUIRED if HOTP)</name>
+<t>The provisioning counter for TOTP or HOTP tokens SHOULD BE provided
 in this parameter.</t>
 <t>This parameter is required if the token type is HOTP.</t>
 </section>
 
-<section anchor="period-parameter-optional"><name><tt>period</tt> parameter (Optional)</name>
-<t>The refresh period (in seconds) for TOTP or HOTP tokens should be provided
+<section anchor="period-parameter-optional"><name><tt>period</tt> parameter (OPTIONAL)</name>
+<t>The refresh period (in seconds) for TOTP or HOTP tokens SHOULD BE provided
 in this parameter. When not provided, 30 seconds is assumed by default.</t>
 <t>Some authenticators at the time writing of this document ignore this
 parameter, the authors of this document believes that this parameter
 MUST be supported in all cases.</t>
 </section>
 
-<section anchor="issuer-parameter-optional"><name><tt>issuer</tt> parameter (Optional)</name>
-<t>The issuer name of TOTP or HOTP tokens should be provided
+<section anchor="issuer-parameter-optional"><name><tt>issuer</tt> parameter (OPTIONAL)</name>
+<t>The issuer name of TOTP or HOTP tokens SHOULD BE provided
 in this parameter.</t>
 </section>
 
-<section anchor="other-parameters"><name>Other parameters</name>
-<t>Vendors may include other parameters in their issued otpauth URIs.
-These parameters are not necessary for the function of TOTP or HOTP
+<section anchor="other-parameters-optional"><name>Other parameters (OPTIONAL)</name>
+<t>Vendors MAY include other parameters in their issued otpauth URIs.
+These parameters are OPTIONAL for the function of TOTP or HOTP
 tokens and not necessary to be included in this document.</t>
 </section>
 </section>
@@ -175,9 +178,15 @@ otpauth://totp/big?issuer=why&amp;secret=NBSWY3DP&amp;period=5&amp;algorithm=SHA
 </artwork>
 </section>
 
-<section anchor="security-considerations"><name>Security Considerations</name>
+<section anchor="SecurityConsiderations"><name>Security Considerations</name>
 <t>This URI format does not in itself pose a security threat. However,
 the Security Considerations of <xref target="RFC3986"></xref> SHOULD BE followed.</t>
+</section>
+
+<section anchor="IANAConsiderations"><name>IANA Considerations</name>
+<t>This format is already available as a provisional entry
+<xref target="IANA.URISchemes.Prov.otpauth"></xref>. IANA is asked to change
+the provisional URI scheme to reference [[this RFC]].</t>
 </section>
 
 </middle>
@@ -236,9 +245,17 @@ written by Terrence Eden <xref target="Edent.Mastodon.Post"></xref>.</t>
 
 <section anchor="document-history"><name>Document History</name>
 <t>[[ To be removed from the final specification ]]</t>
-<t>-03
-   * actually conform to RFC2119 :)
-   * idnits conformation</t>
+<t>-04</t>
+
+<ul spacing="compact">
+<li>more validation changes</li>
+</ul>
+<t>-03</t>
+
+<ul spacing="compact">
+<li>actually conform to RFC2119 :)</li>
+<li>idnits conformation</li>
+</ul>
 <t>-02</t>
 
 <ul spacing="compact">
