@@ -5,6 +5,8 @@
 <front>
 <title abbrev="otpauth URI spec">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-00" stream="IETF" status="informational" name="RFC"></seriesInfo>
 <author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>independent</organization><address><postal><street></street>
+<city>Ankara</city>
+<country>Turkey</country>
 </postal><email>ietf@linuxgemini.space</email>
 </address></author><date/>
 <area>Internet</area>
