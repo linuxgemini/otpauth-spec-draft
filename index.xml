@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- name="GENERATOR" content="github.com/mmarkdown/mmark Mmark Markdown Processor - mmark.miek.nl" -->
-<rfc version="3" ipr="trust200902" docName="draft-linuxgemini-otpauth-uri-04" submissionType="IETF" category="info" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
+<rfc version="3" ipr="trust200902" docName="draft-linuxgemini-otpauth-uri-00" submissionType="IETF" category="info" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
 
 <front>
-<title abbrev="otpauth URI spec">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-04" stream="IETF" status="informational" name="RFC"></seriesInfo>
+<title abbrev="otpauth URI spec">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-00" stream="IETF" status="informational" name="RFC"></seriesInfo>
 <author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>independent</organization><address><postal><street></street>
 </postal><email>ietf@linuxgemini.space</email>
 </address></author><date/>
@@ -245,30 +245,6 @@ written by Terrence Eden <xref target="Edent.Mastodon.Post"></xref>.</t>
 
 <section anchor="document-history"><name>Document History</name>
 <t>[[ To be removed from the final specification ]]</t>
-<t>-04</t>
-
-<ul spacing="compact">
-<li>more validation changes</li>
-</ul>
-<t>-03</t>
-
-<ul spacing="compact">
-<li>actually conform to RFC2119 :)</li>
-<li>idnits conformation</li>
-</ul>
-<t>-02</t>
-
-<ul spacing="compact">
-<li>written approximate abnf definition</li>
-<li>written examples</li>
-<li>reordered some portions</li>
-</ul>
-<t>-01</t>
-
-<ul spacing="compact">
-<li>written the initial spec provided by google <xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref></li>
-<li>added author's comments</li>
-</ul>
 <t>-00</t>
 
 <ul spacing="compact">
