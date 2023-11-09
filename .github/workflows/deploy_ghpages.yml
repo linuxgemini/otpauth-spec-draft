@@ -1,0 +1,54 @@
+name: Deploy Github Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - main.md
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Run apt update
+        run: sudo apt -yqq update
+
+      - name: Run apt upgrade
+        run: sudo apt -yqq upgrade
+
+      - name: Install dependencies available via apt
+        run: sudo apt -yqq install weasyprint wget curl
+
+      - name: Install xml2rfc
+        run: pip install xml2rfc
+
+      - name: Download and extract mmark
+        run: |
+          wget https://github.com/mmarkdown/mmark/releases/download/v2.2.31/mmark_2.2.31_linux_amd64.tgz
+          tar --no-same-owner -xvf mmark_2.2.31_linux_amd64.tgz
+
+      - name: Make build folder
+        run: mkdir ./build
+
+      - name: Render to XML with mmark
+        run: ./mmark main.md > build/index.xml
+
+      - name: Run xml2rfc
+        run: cd build/ && xml2rfc --html index.xml && cd ../
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build

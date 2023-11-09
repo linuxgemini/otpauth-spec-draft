@@ -1,0 +1,8 @@
+build/
+draft.html
+draft.xml
+draft.txt
+metadata.min.js
+draft-ietf-otpauth-uri-*.html
+draft-ietf-otpauth-uri-*.xml
+draft-ietf-otpauth-uri-*.txt

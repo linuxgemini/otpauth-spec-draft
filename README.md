@@ -1,4 +1,4 @@
-# Usage specification of the `otpauth` URI format
+# Usage specification of the otpauth URI format for TOTP and HOTP token generators
 
 This document defines a set specification for `otpauth` URI format, used by various
 TOTP and HOTP token generators.
