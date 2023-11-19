@@ -251,13 +251,13 @@ the provisional URI scheme to reference [[this RFC]].
 
 We would like to thank
 Q Misell,
-Terrence Eden,
+Terence Eden,
 The Google Authenticator Team at Google,
 and others (please let us know, if you've been mistakenly omitted)
 for their valuable input, feedback and general support of this work.
 
 This document originated from discussions at the Fediverse initially
-written by Terrence Eden [@Edent.Mastodon.Post].
+written by Terence Eden [@Edent.Mastodon.Post].
 
 
 # Document History
@@ -286,13 +286,13 @@ written by Terrence Eden [@Edent.Mastodon.Post].
 <reference anchor="Edent.Mastodon.Post" target="https://mastodon.social/@Edent/108266107975107228">
  <front>
    <title>Fediverse post for "Why is there no formal specification for otpauth URls?"</title>
-   <author><fullname>Terrence Eden</fullname></author>
+   <author><fullname>Terence Eden</fullname></author>
  </front>
 </reference>
 
 <reference anchor="Edent.Blog.Post" target="https://shkspr.mobi/blog/2022/05/why-is-there-no-formal-specification-for-otpauth-urls/">
  <front>
    <title>Why is there no formal specification for otpauth URls?</title>
-   <author><fullname>Terrence Eden</fullname></author>
+   <author><fullname>Terence Eden</fullname></author>
  </front>
 </reference>
