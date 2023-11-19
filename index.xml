@@ -237,12 +237,12 @@ the provisional URI scheme to reference [[this RFC]].</t>
 <section anchor="Acknowledgements"><name>Acknowledgements</name>
 <t>We would like to thank
 Q Misell,
-Terrence Eden,
+Terence Eden,
 The Google Authenticator Team at Google,
 and others (please let us know, if you've been mistakenly omitted)
 for their valuable input, feedback and general support of this work.</t>
 <t>This document originated from discussions at the Fediverse initially
-written by Terrence Eden <xref target="Edent.Mastodon.Post"></xref>.</t>
+written by Terence Eden <xref target="Edent.Mastodon.Post"></xref>.</t>
 </section>
 
 <section anchor="document-history"><name>Document History</name>
