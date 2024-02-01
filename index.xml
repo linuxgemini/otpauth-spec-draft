@@ -99,11 +99,12 @@ VCHAR   = %x21-7E
 <section anchor="label-entry-required"><name><tt>LABEL</tt> entry (REQUIRED)</name>
 <t>The label entry MUST be an identifier representing the user. For example,
 can be an username, nickname or a person's name.</t>
+<t>The label entry MUST be consided as a Path per section 3.3. of <xref target="RFC3986"></xref>.</t>
 <t>Although the Authenticator Team at Google recommends including the secret
 issuer to be prepended to the label with the colon character (<tt>:</tt> or <tt>%3A</tt>)
 as a seperator in <xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref>, the authors
 of this document believe that the issuer should only be appended as a
-seperate parameter(see next division).</t>
+seperate parameter (see next division).</t>
 </section>
 
 <section anchor="parameters-entry-required"><name><tt>PARAMETERS</tt> entry (REQUIRED)</name>
@@ -143,18 +144,19 @@ parameter, the authors of this document believes that this parameter
 MUST be supported in all cases.</t>
 </section>
 
-<section anchor="counter-parameter-optional-required-if-hotp"><name><tt>counter</tt> parameter (OPTIONAL, REQUIRED if HOTP)</name>
-<t>The provisioning counter for TOTP or HOTP tokens SHOULD BE provided
-in this parameter.</t>
-<t>This parameter is required if the token type is HOTP.</t>
+<section anchor="counter-parameter-required-if-hotp"><name><tt>counter</tt> parameter (REQUIRED if HOTP)</name>
+<t>The provisioning counter for HOTP tokens MUST BE provided in this
+parameter.</t>
+<t>This parameter is ignored if the token type is TOTP.</t>
 </section>
 
-<section anchor="period-parameter-optional"><name><tt>period</tt> parameter (OPTIONAL)</name>
-<t>The refresh period (in seconds) for TOTP or HOTP tokens SHOULD BE provided
+<section anchor="period-parameter-optional-only-totp"><name><tt>period</tt> parameter (OPTIONAL, only TOTP)</name>
+<t>The refresh period (in seconds) for TOTP tokens SHOULD BE provided
 in this parameter. When not provided, 30 seconds is assumed by default.</t>
 <t>Some authenticators at the time writing of this document ignore this
 parameter, the authors of this document believes that this parameter
-MUST be supported in all cases.</t>
+MUST BE supported in all cases.</t>
+<t>This parameter is ignored if the token type is HOTP.</t>
 </section>
 
 <section anchor="issuer-parameter-optional"><name><tt>issuer</tt> parameter (OPTIONAL)</name>
@@ -176,7 +178,7 @@ tokens and not necessary to be included in this document.</t>
 
 otpauth://hotp/13tfus3r?secret=NBSWY3DP&amp;counter=192
 
-otpauth://totp/big?issuer=why&amp;secret=NBSWY3DP&amp;period=5&amp;algorithm=SHA256
+otpauth://totp/big?issuer=IETF&amp;secret=NBSWY3DP&amp;period=5&amp;algorithm=SHA256
 </artwork>
 </section>
 

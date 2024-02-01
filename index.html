@@ -10,7 +10,7 @@
        This document describes a foundational schema for the otpauth URI,
 utilized by TOTP (and/or HOTP) based authenticators. 
     " name="description">
-<meta content="xml2rfc 3.18.2" name="generator">
+<meta content="xml2rfc 3.19.2" name="generator">
 <meta content="internet" name="keyword">
 <meta content="internet security" name="keyword">
 <meta content="otpauth" name="keyword">
@@ -18,20 +18,20 @@ utilized by TOTP (and/or HOTP) based authenticators.
 <meta content="hotp" name="keyword">
 <meta content="draft-linuxgemini-otpauth-uri-00" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.18.2
+  xml2rfc 3.19.2
     Python 3.10.13
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
-    Jinja2 3.1.2
-    lxml 4.9.3
-    platformdirs 4.0.0
-    pycountry 22.3.5
+    Jinja2 3.1.3
+    lxml 4.9.4
+    platformdirs 4.2.0
+    pycountry 23.12.11
     PyYAML 6.0.1
     requests 2.31.0
     setuptools 65.5.0
     six 1.16.0
-    wcwidth 0.2.10
+    wcwidth 0.2.13
 -->
 <link href="index.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -257,8 +257,7 @@ a[href]:hover {
   background-color: #f2f2f2;
 }
 figcaption a[href],
-a[href].selfRef,
-.iref + a[href].internal {
+a[href].selfRef {
   color: #222;
 }
 /* XXX probably not this:
@@ -1210,11 +1209,11 @@ li > p:last-of-type:only-child {
 <thead><tr>
 <td class="left">RFC draft-linuxgemini-otpauth-uri-00</td>
 <td class="center">otpauth URI spec</td>
-<td class="right">November 2023</td>
+<td class="right">February 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Eroglu</td>
-<td class="center">Expires 22 May 2024</td>
+<td class="center">Expires 4 August 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1227,12 +1226,12 @@ li > p:last-of-type:only-child {
 <dd class="rfc">draft-linuxgemini-otpauth-uri-00</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-11-19" class="published">19 November 2023</time>
+<time datetime="2024-02-01" class="published">1 February 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-05-22">22 May 2024</time></dd>
+<dd class="expires"><time datetime="2024-08-04">4 August 2024</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1267,7 +1266,7 @@ utilized by TOTP (and/or HOTP) based authenticators.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 22 May 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 4 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1276,7 +1275,7 @@ utilized by TOTP (and/or HOTP) based authenticators.<a href="#section-abstract-1
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2023 IETF Trust and the persons identified as the
+            Copyright (c) 2024 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1329,10 +1328,10 @@ utilized by TOTP (and/or HOTP) based authenticators.<a href="#section-abstract-1
                     <p id="section-toc.1-1.3.2.3.2.3.1"><a href="#section-3.3.3" class="auto internal xref">3.3.3</a>.  <a href="#name-digits-parameter-optional" class="internal xref"><code>digits</code> parameter (OPTIONAL)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.4">
-                    <p id="section-toc.1-1.3.2.3.2.4.1"><a href="#section-3.3.4" class="auto internal xref">3.3.4</a>.  <a href="#name-counter-parameter-optional-" class="internal xref"><code>counter</code> parameter (OPTIONAL, REQUIRED if HOTP)</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.4.1"><a href="#section-3.3.4" class="auto internal xref">3.3.4</a>.  <a href="#name-counter-parameter-required-" class="internal xref"><code>counter</code> parameter (REQUIRED if HOTP)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.5">
-                    <p id="section-toc.1-1.3.2.3.2.5.1"><a href="#section-3.3.5" class="auto internal xref">3.3.5</a>.  <a href="#name-period-parameter-optional" class="internal xref"><code>period</code> parameter (OPTIONAL)</a></p>
+                    <p id="section-toc.1-1.3.2.3.2.5.1"><a href="#section-3.3.5" class="auto internal xref">3.3.5</a>.  <a href="#name-period-parameter-optional-o" class="internal xref"><code>period</code> parameter (OPTIONAL, only TOTP)</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3.2.6">
                     <p id="section-toc.1-1.3.2.3.2.6.1"><a href="#section-3.3.6" class="auto internal xref">3.3.6</a>.  <a href="#name-issuer-parameter-optional" class="internal xref"><code>issuer</code> parameter (OPTIONAL)</a></p>
@@ -1470,11 +1469,12 @@ VCHAR   = %x21-7E
         </h3>
 <p id="section-3.2-1">The label entry MUST be an identifier representing the user. For example,
 can be an username, nickname or a person's name.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.2-2">Although the Authenticator Team at Google recommends including the secret
+<p id="section-3.2-2">The label entry MUST be consided as a Path per section 3.3. of <span>[<a href="#RFC3986" class="cite xref">RFC3986</a>]</span>.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2-3">Although the Authenticator Team at Google recommends including the secret
 issuer to be prepended to the label with the colon character (<code>:</code> or <code>%3A</code>)
 as a seperator in <span>[<a href="#Google.Authenticator.OSS.Wiki.Key.Format" class="cite xref">Google.Authenticator.OSS.Wiki.Key.Format</a>]</span>, the authors
 of this document believe that the issuer should only be appended as a
-seperate parameter(see next division).<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+seperate parameter (see next division).<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="parameters-entry-required">
@@ -1531,26 +1531,27 @@ parameter, the authors of this document believes that this parameter
 MUST be supported in all cases.<a href="#section-3.3.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="counter-parameter-optional-required-if-hotp">
+<div id="counter-parameter-required-if-hotp">
 <section id="section-3.3.4">
-          <h4 id="name-counter-parameter-optional-">
-<a href="#section-3.3.4" class="section-number selfRef">3.3.4. </a><a href="#name-counter-parameter-optional-" class="section-name selfRef"><code>counter</code> parameter (OPTIONAL, REQUIRED if HOTP)</a>
+          <h4 id="name-counter-parameter-required-">
+<a href="#section-3.3.4" class="section-number selfRef">3.3.4. </a><a href="#name-counter-parameter-required-" class="section-name selfRef"><code>counter</code> parameter (REQUIRED if HOTP)</a>
           </h4>
-<p id="section-3.3.4-1">The provisioning counter for TOTP or HOTP tokens SHOULD BE provided
-in this parameter.<a href="#section-3.3.4-1" class="pilcrow">¶</a></p>
-<p id="section-3.3.4-2">This parameter is required if the token type is HOTP.<a href="#section-3.3.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.3.4-1">The provisioning counter for HOTP tokens MUST BE provided in this
+parameter.<a href="#section-3.3.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.3.4-2">This parameter is ignored if the token type is TOTP.<a href="#section-3.3.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="period-parameter-optional">
+<div id="period-parameter-optional-only-totp">
 <section id="section-3.3.5">
-          <h4 id="name-period-parameter-optional">
-<a href="#section-3.3.5" class="section-number selfRef">3.3.5. </a><a href="#name-period-parameter-optional" class="section-name selfRef"><code>period</code> parameter (OPTIONAL)</a>
+          <h4 id="name-period-parameter-optional-o">
+<a href="#section-3.3.5" class="section-number selfRef">3.3.5. </a><a href="#name-period-parameter-optional-o" class="section-name selfRef"><code>period</code> parameter (OPTIONAL, only TOTP)</a>
           </h4>
-<p id="section-3.3.5-1">The refresh period (in seconds) for TOTP or HOTP tokens SHOULD BE provided
+<p id="section-3.3.5-1">The refresh period (in seconds) for TOTP tokens SHOULD BE provided
 in this parameter. When not provided, 30 seconds is assumed by default.<a href="#section-3.3.5-1" class="pilcrow">¶</a></p>
 <p id="section-3.3.5-2">Some authenticators at the time writing of this document ignore this
 parameter, the authors of this document believes that this parameter
-MUST be supported in all cases.<a href="#section-3.3.5-2" class="pilcrow">¶</a></p>
+MUST BE supported in all cases.<a href="#section-3.3.5-2" class="pilcrow">¶</a></p>
+<p id="section-3.3.5-3">This parameter is ignored if the token type is HOTP.<a href="#section-3.3.5-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="issuer-parameter-optional">
@@ -1586,7 +1587,7 @@ tokens and not necessary to be included in this document.<a href="#section-3.3.7
 
 otpauth://hotp/13tfus3r?secret=NBSWY3DP&amp;counter=192
 
-otpauth://totp/big?issuer=why&amp;secret=NBSWY3DP&amp;period=5&amp;algorithm=SHA256
+otpauth://totp/big?issuer=IETF&amp;secret=NBSWY3DP&amp;period=5&amp;algorithm=SHA256
 </pre><a href="#section-4-1" class="pilcrow">¶</a>
 </div>
 </section>
@@ -1704,9 +1705,7 @@ written by Terence Eden <span>[<a href="#Edent.Mastodon.Post" class="cite xref">
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Ilteris Yagiztegin Eroglu</span></div>
 <div dir="auto" class="left"><span class="org">independent</span></div>
-<div dir="auto" class="left">
-<span class="locality">Ankara</span>/</div>
-<div dir="auto" class="left"><span class="country-name">Turkey</span></div>
+<div dir="auto" class="left"><span class="locality">Ankara</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:ietf@linuxgemini.space" class="email">ietf@linuxgemini.space</a>
