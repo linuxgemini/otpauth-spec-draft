@@ -129,6 +129,8 @@ The type entry MUST be one of `totp` or `hotp`, depending on the OTP type.
 The label entry MUST be an identifier representing the user. For example,
 can be an username, nickname or a person's name.
 
+The label entry MUST be consided as a Path per section 3.3. of [@!RFC3986].
+
 Although the Authenticator Team at Google recommends including the secret
 issuer to be prepended to the label with the colon character (`:` or `%3A`)
 as a seperator in [@Google.Authenticator.OSS.Wiki.Key.Format], the authors
