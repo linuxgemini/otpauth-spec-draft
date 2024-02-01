@@ -133,7 +133,7 @@ Although the Authenticator Team at Google recommends including the secret
 issuer to be prepended to the label with the colon character (`:` or `%3A`)
 as a seperator in [@Google.Authenticator.OSS.Wiki.Key.Format], the authors
 of this document believe that the issuer should only be appended as a
-seperate parameter(see next division).
+seperate parameter (see next division).
 
 
 ## `PARAMETERS` entry (REQUIRED)
@@ -228,7 +228,7 @@ otpauth://totp/ietfuser?secret=NBSWY3DP
 
 otpauth://hotp/13tfus3r?secret=NBSWY3DP&counter=192
 
-otpauth://totp/big?issuer=why&secret=NBSWY3DP&period=5&algorithm=SHA256
+otpauth://totp/big?issuer=IETF&secret=NBSWY3DP&period=5&algorithm=SHA256
 ```
 
 
