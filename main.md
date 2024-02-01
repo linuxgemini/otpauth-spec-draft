@@ -187,22 +187,24 @@ parameter, the authors of this document believes that this parameter
 MUST be supported in all cases.
 
 
-### `counter` parameter (OPTIONAL, REQUIRED if HOTP)
+### `counter` parameter (REQUIRED if HOTP)
 
-The provisioning counter for TOTP or HOTP tokens SHOULD BE provided
-in this parameter.
+The provisioning counter for HOTP tokens MUST BE provided in this
+parameter.
 
-This parameter is required if the token type is HOTP.
+This parameter is ignored if the token type is TOTP.
 
 
-### `period` parameter (OPTIONAL)
+### `period` parameter (OPTIONAL, only TOTP)
 
-The refresh period (in seconds) for TOTP or HOTP tokens SHOULD BE provided
+The refresh period (in seconds) for TOTP tokens SHOULD BE provided
 in this parameter. When not provided, 30 seconds is assumed by default.
 
 Some authenticators at the time writing of this document ignore this
 parameter, the authors of this document believes that this parameter
-MUST be supported in all cases.
+MUST BE supported in all cases.
+
+This parameter is ignored if the token type is HOTP.
 
 
 ### `issuer` parameter (OPTIONAL)
