@@ -10,22 +10,22 @@
        This document describes a foundational schema for the otpauth URI,
 utilized by TOTP (and/or HOTP) based authenticators. 
     " name="description">
-<meta content="xml2rfc 3.19.2" name="generator">
+<meta content="xml2rfc 3.21.0" name="generator">
 <meta content="internet" name="keyword">
 <meta content="internet security" name="keyword">
 <meta content="otpauth" name="keyword">
 <meta content="totp" name="keyword">
 <meta content="hotp" name="keyword">
-<meta content="draft-linuxgemini-otpauth-uri-00" name="ietf.draft">
+<meta content="draft-linuxgemini-otpauth-uri-01" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.19.2
-    Python 3.10.13
+  xml2rfc 3.21.0
+    Python 3.10.14
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
-    Jinja2 3.1.3
+    Jinja2 3.1.4
     lxml 4.9.4
-    platformdirs 4.2.0
+    platformdirs 4.2.1
     pycountry 23.12.11
     PyYAML 6.0.1
     requests 2.31.0
@@ -317,6 +317,9 @@ cite {
   text-align: right;
   font-style: italic;
 }
+.xref {
+  overflow-wrap: normal;
+}
 
 /* tables */
 table {
@@ -458,6 +461,10 @@ nav.toc li {
 }
 
 .refInstance {
+  margin-bottom: 1.25em;
+}
+
+.refSubseries {
   margin-bottom: 1.25em;
 }
 
@@ -1207,13 +1214,13 @@ li > p:last-of-type:only-child {
 <script src="metadata.min.js"></script>
 <table class="ears">
 <thead><tr>
-<td class="left">RFC draft-linuxgemini-otpauth-uri-00</td>
+<td class="left">RFC draft-linuxgemini-otpauth-uri-01</td>
 <td class="center">otpauth URI spec</td>
-<td class="right">February 2024</td>
+<td class="right">May 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Eroglu</td>
-<td class="center">Expires 4 August 2024</td>
+<td class="center">Expires 13 November 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1223,15 +1230,15 @@ li > p:last-of-type:only-child {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-rfc">RFC:</dt>
-<dd class="rfc">draft-linuxgemini-otpauth-uri-00</dd>
+<dd class="rfc">draft-linuxgemini-otpauth-uri-01</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-02-01" class="published">1 February 2024</time>
+<time datetime="2024-05-12" class="published">12 May 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-08-04">4 August 2024</time></dd>
+<dd class="expires"><time datetime="2024-11-13">13 November 2024</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1266,7 +1273,7 @@ utilized by TOTP (and/or HOTP) based authenticators.<a href="#section-abstract-1
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 13 November 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1690,9 +1697,16 @@ written by Terence Eden <span>[<a href="#Edent.Mastodon.Post" class="cite xref">
 <a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-document-history" class="section-name selfRef">Document History</a>
       </h2>
 <p id="appendix-B-1">[[ To be removed from the final specification ]]<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<p id="appendix-B-2">-00<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">-01<a href="#appendix-B-2" class="pilcrow">¶</a></p>
 <ul class="compact">
-<li class="compact" id="appendix-B-3.1">first draft<a href="#appendix-B-3.1" class="pilcrow">¶</a>
+<li class="compact" id="appendix-B-3.1">corrected Terence's name<a href="#appendix-B-3.1" class="pilcrow">¶</a>
+</li>
+        <li class="compact" id="appendix-B-3.2">corrected parameter confusion between TOTP and HOTP<a href="#appendix-B-3.2" class="pilcrow">¶</a>
+</li>
+      </ul>
+<p id="appendix-B-4">-00<a href="#appendix-B-4" class="pilcrow">¶</a></p>
+<ul class="compact">
+<li class="compact" id="appendix-B-5.1">first draft<a href="#appendix-B-5.1" class="pilcrow">¶</a>
 </li>
       </ul>
 </section>
