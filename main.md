@@ -10,7 +10,7 @@ keyword = ["internet", "internet security", "otpauth", "totp", "hotp"]
 
 [seriesInfo]
 name = "RFC"
-value = "draft-linuxgemini-otpauth-uri-00"
+value = "draft-linuxgemini-otpauth-uri-01"
 stream = "IETF"
 status = "informational"
 
@@ -267,6 +267,11 @@ written by Terence Eden [@Edent.Mastodon.Post].
 # Document History
 
    [[ To be removed from the final specification ]]
+
+   -01
+
+   *  corrected Terence's name
+   *  corrected parameter confusion between TOTP and HOTP
 
    -00
 
