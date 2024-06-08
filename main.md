@@ -151,7 +151,7 @@ The following parameters SHOULD BE included:
 
 The secret of the OTP MUST be provided within this parameter. The secret
 MUST be encoded in Base32. The padding specified in [@!RFC4648]
-section 2.2 is not required and SHOULD BE omitted.
+section 3.2 is not required and SHOULD BE omitted.
 
 For example:
 
