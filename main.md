@@ -133,14 +133,14 @@ The label entry MUST be considered as a Path per section 3.3. of [@!RFC3986].
 
 Although the Authenticator Team at Google recommends including the secret
 issuer to be prepended to the label with the colon character (`:` or `%3A`)
-as a seperator in [@Google.Authenticator.OSS.Wiki.Key.Format], the authors
+as a separator in [@Google.Authenticator.OSS.Wiki.Key.Format], the authors
 of this document believe that the issuer should only be appended as a
-seperate parameter (see next division).
+separate parameter (see next division).
 
 
 ## `PARAMETERS` entry (REQUIRED)
 
-This entry is an URI query string. Each parameter MUST be seperated by the
+This entry is an URI query string. Each parameter MUST be separated by the
 `&` character and SHOULD BE "URI Safe" (see section 2.2. Reserved
 Characters in [@!RFC3986]).
 
