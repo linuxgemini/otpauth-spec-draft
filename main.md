@@ -50,8 +50,9 @@ authenticators with various options
 [@Google.Authenticator.OSS.Wiki.Key.Format].
 
 Although available as a provisional scheme at IANA
-[@IANA.URISchemes.Prov.otpauth], there are many divisions of the usage
-specification per authenticator hardware and software [@Edent.Blog.Post].
+[@IANA.URISchemes.Prov.otpauth], there are many deviations of the
+specification usage per authenticator hardware and software
+[@Edent.Blog.Post].
 
 This document aims to provide foundational boundaries for the URI format
 and standardize the secret sharing of OTP tokens.
@@ -68,8 +69,8 @@ appear in all capitals, as shown here.
 This specification uses the Augmented Backus-Naur Form (ABNF) notation
 of [@!RFC5234].
 
-This specification uses the terms "TOTP" defined by [@!RFC6238] and "HOTP"
-defined by [@!RFC4226]. Both RFCs also mention "secret", "issuer" and
+This specification uses terms "TOTP" defined by [@!RFC6238] and "HOTP"
+defined by [@!RFC4226]. Both RFCs also mention "secret", "issuer", and
 "account".
 
 The term "URI" is imported from [@!RFC3986]. Mentions of "query string" in
@@ -127,7 +128,7 @@ The type entry MUST be one of `totp` or `hotp`, depending on the OTP type.
 ## `LABEL` entry (REQUIRED)
 
 The label entry MUST be an identifier representing the user. For example,
-can be an username, nickname or a person's name.
+can be a username, nickname or a person's name.
 
 The label entry MUST be considered as a Path per section 3.3. of [@!RFC3986].
 
@@ -140,7 +141,7 @@ separate parameter (see next division).
 
 ## `PARAMETERS` entry (REQUIRED)
 
-This entry is an URI query string. Each parameter MUST be separated by the
+This entry is a URI query string. Each parameter MUST be separated by the
 `&` character and SHOULD BE "URI Safe" (see section 2.2. Reserved
 Characters in [@!RFC3986]).
 
@@ -173,19 +174,19 @@ otp-algorithm   = "SHA1" / "SHA256" / "SHA512"
 ```
 
 
-Some authenticators at the time writing of this document ignore this
-parameter, the authors of this document believes that this parameter
+Some authenticators at the time of writing this document ignore this
+parameter. The authors of this document believe that this parameter
 MUST be supported in all cases.
 
 
 ### `digits` parameter (OPTIONAL)
 
-The amount of digits to be outputted for TOTP or HOTP tokens
+The number of digits in the output for TOTP or HOTP tokens
 SHOULD BE provided in this parameter. This value MUST be
 between 6 and 8. When not provided, 6 digits is assumed by default.
 
-Some authenticators at the time writing of this document ignore this
-parameter, the authors of this document believes that this parameter
+Some authenticators at the time of writing this document ignore this
+parameter, the authors of this document believe that this parameter
 MUST be supported in all cases.
 
 
@@ -202,8 +203,8 @@ This parameter is ignored if the token type is TOTP.
 The refresh period (in seconds) for TOTP tokens SHOULD BE provided
 in this parameter. When not provided, 30 seconds is assumed by default.
 
-Some authenticators at the time writing of this document ignore this
-parameter, the authors of this document believes that this parameter
+Some authenticators at the time of writing this document ignore this
+parameter, the authors of this document believe that this parameter
 MUST BE supported in all cases.
 
 This parameter is ignored if the token type is HOTP.
