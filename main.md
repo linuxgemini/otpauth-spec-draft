@@ -186,7 +186,7 @@ SHOULD BE provided in this parameter. This value MUST be
 between 6 and 8. When not provided, 6 digits is assumed by default.
 
 Some authenticators at the time of writing this document ignore this
-parameter, the authors of this document believe that this parameter
+parameter. The authors of this document believe that this parameter
 MUST be supported in all cases.
 
 
@@ -204,7 +204,7 @@ The refresh period (in seconds) for TOTP tokens SHOULD BE provided
 in this parameter. When not provided, 30 seconds is assumed by default.
 
 Some authenticators at the time of writing this document ignore this
-parameter, the authors of this document believe that this parameter
+parameter. The authors of this document believe that this parameter
 MUST BE supported in all cases.
 
 This parameter is ignored if the token type is HOTP.
