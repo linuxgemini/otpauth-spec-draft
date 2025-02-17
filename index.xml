@@ -37,8 +37,9 @@ utilized by TOTP (and/or HOTP) based authenticators.</t>
 authenticators with various options
 <xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref>.</t>
 <t>Although available as a provisional scheme at IANA
-<xref target="IANA.URISchemes.Prov.otpauth"></xref>, there are many divisions of the usage
-specification per authenticator hardware and software <xref target="Edent.Blog.Post"></xref>.</t>
+<xref target="IANA.URISchemes.Prov.otpauth"></xref>, there are many deviations of the
+specification usage per authenticator hardware and software
+<xref target="Edent.Blog.Post"></xref>.</t>
 <t>This document aims to provide foundational boundaries for the URI format
 and standardize the secret sharing of OTP tokens.</t>
 
@@ -50,8 +51,8 @@ described in BCP 14 <xref target="RFC2119"></xref> <xref target="RFC8174"></xref
 appear in all capitals, as shown here.</t>
 <t>This specification uses the Augmented Backus-Naur Form (ABNF) notation
 of <xref target="RFC5234"></xref>.</t>
-<t>This specification uses the terms &quot;TOTP&quot; defined by <xref target="RFC6238"></xref> and &quot;HOTP&quot;
-defined by <xref target="RFC4226"></xref>. Both RFCs also mention &quot;secret&quot;, &quot;issuer&quot; and
+<t>This specification uses terms &quot;TOTP&quot; defined by <xref target="RFC6238"></xref> and &quot;HOTP&quot;
+defined by <xref target="RFC4226"></xref>. Both RFCs also mention &quot;secret&quot;, &quot;issuer&quot;, and
 &quot;account&quot;.</t>
 <t>The term &quot;URI&quot; is imported from <xref target="RFC3986"></xref>. Mentions of &quot;query string&quot; in
 this document references the &quot;Query&quot; parameter (in section 3.4) of this RFC.</t>
@@ -98,17 +99,17 @@ VCHAR   = %x21-7E
 
 <section anchor="label-entry-required"><name><tt>LABEL</tt> entry (REQUIRED)</name>
 <t>The label entry MUST be an identifier representing the user. For example,
-can be an username, nickname or a person's name.</t>
-<t>The label entry MUST be consided as a Path per section 3.3. of <xref target="RFC3986"></xref>.</t>
+can be a username, nickname or a person's name.</t>
+<t>The label entry MUST be considered as a Path per section 3.3. of <xref target="RFC3986"></xref>.</t>
 <t>Although the Authenticator Team at Google recommends including the secret
 issuer to be prepended to the label with the colon character (<tt>:</tt> or <tt>%3A</tt>)
-as a seperator in <xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref>, the authors
+as a separator in <xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref>, the authors
 of this document believe that the issuer should only be appended as a
-seperate parameter (see next division).</t>
+separate parameter (see next division).</t>
 </section>
 
 <section anchor="parameters-entry-required"><name><tt>PARAMETERS</tt> entry (REQUIRED)</name>
-<t>This entry is an URI query string. Each parameter MUST be seperated by the
+<t>This entry is a URI query string. Each parameter MUST be separated by the
 <tt>&amp;</tt> character and SHOULD BE &quot;URI Safe&quot; (see section 2.2. Reserved
 Characters in <xref target="RFC3986"></xref>).</t>
 <t>The following parameters SHOULD BE included:</t>
@@ -116,7 +117,7 @@ Characters in <xref target="RFC3986"></xref>).</t>
 <section anchor="secret-parameter-required"><name><tt>secret</tt> parameter (REQUIRED)</name>
 <t>The secret of the OTP MUST be provided within this parameter. The secret
 MUST be encoded in Base32. The padding specified in <xref target="RFC4648"></xref>
-section 2.2 is not required and SHOULD BE omitted.</t>
+section 3.2 is not required and SHOULD BE omitted.</t>
 <t>For example:</t>
 
 <artwork>otpauth://totp/ietfuser?secret=NBSWY3DPFQQHO33SNRSAU
@@ -130,17 +131,17 @@ in this parameter. When not provided, <tt>SHA1</tt> is assumed by default.</t>
 
 <artwork>otp-algorithm   = &quot;SHA1&quot; / &quot;SHA256&quot; / &quot;SHA512&quot;
 </artwork>
-<t>Some authenticators at the time writing of this document ignore this
-parameter, the authors of this document believes that this parameter
+<t>Some authenticators at the time of writing this document ignore this
+parameter. The authors of this document believe that this parameter
 MUST be supported in all cases.</t>
 </section>
 
 <section anchor="digits-parameter-optional"><name><tt>digits</tt> parameter (OPTIONAL)</name>
-<t>The amount of digits to be outputted for TOTP or HOTP tokens
+<t>The number of digits in the output for TOTP or HOTP tokens
 SHOULD BE provided in this parameter. This value MUST be
 between 6 and 8. When not provided, 6 digits is assumed by default.</t>
-<t>Some authenticators at the time writing of this document ignore this
-parameter, the authors of this document believes that this parameter
+<t>Some authenticators at the time of writing this document ignore this
+parameter. The authors of this document believe that this parameter
 MUST be supported in all cases.</t>
 </section>
 
@@ -153,8 +154,8 @@ parameter.</t>
 <section anchor="period-parameter-optional-only-totp"><name><tt>period</tt> parameter (OPTIONAL, only TOTP)</name>
 <t>The refresh period (in seconds) for TOTP tokens SHOULD BE provided
 in this parameter. When not provided, 30 seconds is assumed by default.</t>
-<t>Some authenticators at the time writing of this document ignore this
-parameter, the authors of this document believes that this parameter
+<t>Some authenticators at the time of writing this document ignore this
+parameter. The authors of this document believe that this parameter
 MUST BE supported in all cases.</t>
 <t>This parameter is ignored if the token type is HOTP.</t>
 </section>
