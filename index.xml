@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- name="GENERATOR" content="github.com/mmarkdown/mmark Mmark Markdown Processor - mmark.miek.nl" -->
-<rfc version="3" ipr="trust200902" docName="draft-linuxgemini-otpauth-uri-01" submissionType="IETF" category="info" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true" consensus="true">
+<rfc version="3" ipr="trust200902" docName="draft-linuxgemini-otpauth-uri-02" submissionType="IETF" category="info" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true">
 
 <front>
-<title abbrev="otpauth URI spec">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-01" stream="IETF" status="informational" name="RFC"></seriesInfo>
+<title abbrev="otpauth URI spec">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-02" stream="IETF" status="informational" name="RFC"></seriesInfo>
 <author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>independent</organization><address><postal><street></street>
-<city>Ankara</city>
-<country>Turkey</country>
+<country>TR</country>
+<region>Ankara</region>
 </postal><email>ietf@linuxgemini.space</email>
+<uri>https://linuxgemini.space</uri>
 </address></author><date/>
 <area>Internet</area>
 <workgroup></workgroup>
@@ -33,15 +34,16 @@ utilized by TOTP (and/or HOTP) based authenticators.</t>
 </section>
 
 <section anchor="Introduction"><name>Introduction</name>
-<t>The otpauth URI is used for easy addition of accounts to TOTP (and/or HOTP)
-authenticators with various options
-<xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref>.</t>
+<t>The otpauth URI is used for easy addition of accounts to
+Time-Based One-Time Password (TOTP) and/or HMAC-based
+One-Time Password (HOTP) authenticators with various
+options <xref target="Google.Authenticator.OSS.Wiki.Key.Format"></xref>.</t>
 <t>Although available as a provisional scheme at IANA
 <xref target="IANA.URISchemes.Prov.otpauth"></xref>, there are many deviations of the
 specification usage per authenticator hardware and software
 <xref target="Edent.Blog.Post"></xref>.</t>
 <t>This document aims to provide foundational boundaries for the URI format
-and standardize the secret sharing of OTP tokens.</t>
+and standardize the secret sharing of One-Time Password (OTP) tokens.</t>
 
 <section anchor="conventions-and-terminology"><name>Conventions and Terminology</name>
 <t>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL
@@ -64,23 +66,23 @@ from <xref target="RFC4648"></xref> with the same name.</t>
 <section anchor="syntax"><name>Syntax</name>
 <t>The URI MUST be formatted like below:</t>
 
-<artwork>otpauth://TYPE/LABEL?PARAMETERS
-</artwork>
+<artwork><![CDATA[otpauth://TYPE/LABEL?PARAMETERS
+]]></artwork>
 <t>An approximate ABNF representation of this is like below:</t>
 
-<artwork>otpauth-uri    = &quot;otpauth://&quot; uri-type &quot;/&quot; uri-label &quot;?&quot; uri-parameters
-uri-type       = &quot;totp&quot; / &quot;hotp&quot;
+<artwork><![CDATA[otpauth-uri    = "otpauth://" uri-type "/" uri-label "?" uri-parameters
+uri-type       = "totp" / "hotp"
 uri-label      = *VCHAR
-uri-parameters = &quot;secret=&quot; *base-32 [ *uri-opt-parameters ]
+uri-parameters = "secret=" *base-32 [ *uri-opt-parameters ]
 
-uri-opt-parameters =  (&quot;&amp;algorithm=&quot; otp-algorithm)
-uri-opt-parameters =/ (&quot;&amp;digits=&quot; otp-digits)
-uri-opt-parameters =/ (&quot;&amp;counter=&quot; *DIGIT) / (&quot;&amp;period=&quot; *DIGIT)
-uri-opt-parameters =/ (&quot;&amp;issuer=&quot; *VCHAR) / (&quot;&amp;&quot; *VCHAR &quot;=&quot; *VCHAR)
+uri-opt-parameters =  ("&algorithm=" otp-algorithm)
+uri-opt-parameters =/ ("&digits=" otp-digits)
+uri-opt-parameters =/ ("&counter=" *DIGIT) / ("&period=" *DIGIT)
+uri-opt-parameters =/ ("&issuer=" *VCHAR) / ("&" *VCHAR "=" *VCHAR)
                         ; Please refer to RFC3986 for handling
                         ; complex names
 
-otp-algorithm = &quot;SHA1&quot; / &quot;SHA256&quot; / &quot;SHA512&quot;
+otp-algorithm = "SHA1" / "SHA256" / "SHA512"
 
 otp-digits    = %x36-38
                 ; 6-8
@@ -91,10 +93,11 @@ DIGIT   = %x30-39
                 ; 0-9
 VCHAR   = %x21-7E
                 ; visible (printing) characters
-</artwork>
+]]></artwork>
 
 <section anchor="type-entry-required"><name><tt>TYPE</tt> entry (REQUIRED)</name>
-<t>The type entry MUST be one of <tt>totp</tt> or <tt>hotp</tt>, depending on the OTP type.</t>
+<t>The type entry MUST be one of <tt>totp</tt> or <tt>hotp</tt>, depending on the One-Time
+Password (OTP) type.</t>
 </section>
 
 <section anchor="label-entry-required"><name><tt>LABEL</tt> entry (REQUIRED)</name>
@@ -120,8 +123,8 @@ MUST be encoded in Base32. The padding specified in <xref target="RFC4648"></xre
 section 3.2 is not required and SHOULD BE omitted.</t>
 <t>For example:</t>
 
-<artwork>otpauth://totp/ietfuser?secret=NBSWY3DPFQQHO33SNRSAU
-</artwork>
+<artwork><![CDATA[otpauth://totp/ietfuser?secret=NBSWY3DPFQQHO33SNRSAU
+]]></artwork>
 </section>
 
 <section anchor="algorithm-parameter-optional"><name><tt>algorithm</tt> parameter (OPTIONAL)</name>
@@ -129,8 +132,8 @@ section 3.2 is not required and SHOULD BE omitted.</t>
 in this parameter. When not provided, <tt>SHA1</tt> is assumed by default.</t>
 <t>The ABNF representation is defined below:</t>
 
-<artwork>otp-algorithm   = &quot;SHA1&quot; / &quot;SHA256&quot; / &quot;SHA512&quot;
-</artwork>
+<artwork><![CDATA[otp-algorithm   = "SHA1" / "SHA256" / "SHA512"
+]]></artwork>
 <t>Some authenticators at the time of writing this document ignore this
 parameter. The authors of this document believe that this parameter
 MUST be supported in all cases.</t>
@@ -175,12 +178,12 @@ tokens and not necessary to be included in this document.</t>
 
 <section anchor="Examples"><name>Examples</name>
 
-<artwork>otpauth://totp/ietfuser?secret=NBSWY3DP
+<artwork><![CDATA[otpauth://totp/ietfuser?secret=NBSWY3DP
 
-otpauth://hotp/13tfus3r?secret=NBSWY3DP&amp;counter=192
+otpauth://hotp/13tfus3r?secret=NBSWY3DP&counter=192
 
-otpauth://totp/big?issuer=IETF&amp;secret=NBSWY3DP&amp;period=5&amp;algorithm=SHA256
-</artwork>
+otpauth://totp/big?issuer=IETF&secret=NBSWY3DP&period=5&algorithm=SHA256
+]]></artwork>
 </section>
 
 <section anchor="SecurityConsiderations"><name>Security Considerations</name>
@@ -197,14 +200,15 @@ the provisional URI scheme to reference [[this RFC]].</t>
 </middle>
 
 <back>
+<references><name>References</name>
 <references><name>Normative References</name>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.3986.xml"/>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4226.xml"/>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4648.xml"/>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5234.xml"/>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6238.xml"/>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.3986.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4226.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.4648.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.5234.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.6238.xml"/>
+<xi:include href="https://bib.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
 </references>
 <references><name>Informative References</name>
 <reference anchor="Edent.Blog.Post" target="https://shkspr.mobi/blog/2022/05/why-is-there-no-formal-specification-for-otpauth-urls/">
@@ -236,12 +240,15 @@ the provisional URI scheme to reference [[this RFC]].</t>
   </front>
 </reference>
 </references>
+</references>
 
 <section anchor="Acknowledgements"><name>Acknowledgements</name>
 <t>We would like to thank
 Q Misell,
 Terence Eden,
 The Google Authenticator Team at Google,
+Eugene Fox,
+Seonghyeon Cho,
 and others (please let us know, if you've been mistakenly omitted)
 for their valuable input, feedback and general support of this work.</t>
 <t>This document originated from discussions at the Fediverse initially
@@ -250,6 +257,12 @@ written by Terence Eden <xref target="Edent.Mastodon.Post"></xref>.</t>
 
 <section anchor="document-history"><name>Document History</name>
 <t>[[ To be removed from the final specification ]]</t>
+<t>-02</t>
+
+<ul spacing="compact">
+<li>various typo corrections</li>
+<li>various phrasing changes</li>
+</ul>
 <t>-01</t>
 
 <ul spacing="compact">
