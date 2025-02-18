@@ -10,20 +10,21 @@ keyword = ["internet", "internet security", "otpauth", "totp", "hotp"]
 
 [seriesInfo]
 name = "RFC"
-value = "draft-linuxgemini-otpauth-uri-01"
+value = "draft-linuxgemini-otpauth-uri-02"
 stream = "IETF"
 status = "informational"
 
 [[author]]
+fullname = "Ilteris Yagiztegin Eroglu"
 initials = "I. Y."
 surname = "Eroglu"
-fullname = "Ilteris Yagiztegin Eroglu"
 organization = "independent"
     [author.address]
     email = "ietf@linuxgemini.space"
+    uri = "https://linuxgemini.space"
         [author.address.postal]
-         city = "Ankara"
-         country = "Turkey"
+         region = "Ankara"
+         country = "TR"
 
 %%%
 
@@ -45,9 +46,10 @@ https://github.com/linuxgemini/otpauth-spec-draft.
 
 # Introduction {#Introduction}
 
-The otpauth URI is used for easy addition of accounts to TOTP (and/or HOTP)
-authenticators with various options
-[@Google.Authenticator.OSS.Wiki.Key.Format].
+The otpauth URI is used for easy addition of accounts to
+Time-Based One-Time Password (TOTP) and/or HMAC-based
+One-Time Password (HOTP) authenticators with various
+options [@Google.Authenticator.OSS.Wiki.Key.Format].
 
 Although available as a provisional scheme at IANA
 [@IANA.URISchemes.Prov.otpauth], there are many deviations of the
@@ -55,7 +57,7 @@ specification usage per authenticator hardware and software
 [@Edent.Blog.Post].
 
 This document aims to provide foundational boundaries for the URI format
-and standardize the secret sharing of OTP tokens.
+and standardize the secret sharing of One-Time Password (OTP) tokens.
 
 
 ## Conventions and Terminology
@@ -122,7 +124,8 @@ VCHAR   = %x21-7E
 
 ## `TYPE` entry (REQUIRED)
 
-The type entry MUST be one of `totp` or `hotp`, depending on the OTP type.
+The type entry MUST be one of `totp` or `hotp`, depending on the One-Time
+Password (OTP) type.
 
 
 ## `LABEL` entry (REQUIRED)
@@ -258,6 +261,8 @@ We would like to thank
 Q Misell,
 Terence Eden,
 The Google Authenticator Team at Google,
+Eugene Fox,
+Seonghyeon Cho,
 and others (please let us know, if you've been mistakenly omitted)
 for their valuable input, feedback and general support of this work.
 
@@ -268,6 +273,11 @@ written by Terence Eden [@Edent.Mastodon.Post].
 # Document History
 
    [[ To be removed from the final specification ]]
+
+   -02
+
+   *  various typo corrections
+   *  various phrasing changes
 
    -01
 

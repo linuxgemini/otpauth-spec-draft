@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
 
       - name: Run apt update
         run: sudo apt -yqq update
@@ -36,8 +36,8 @@ jobs:
 
       - name: Download and extract mmark
         run: |
-          wget https://github.com/mmarkdown/mmark/releases/download/v2.2.31/mmark_2.2.31_linux_amd64.tgz
-          tar --no-same-owner -xvf mmark_2.2.31_linux_amd64.tgz
+          wget https://github.com/mmarkdown/mmark/releases/download/v2.2.46/mmark_2.2.46_linux_amd64.tgz
+          tar --no-same-owner -xvf mmark_2.2.46_linux_amd64.tgz
 
       - name: Make build folder
         run: mkdir ./build
