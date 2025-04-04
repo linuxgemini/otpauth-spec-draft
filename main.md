@@ -1,5 +1,5 @@
 %%%
-title = "Usage specification of the otpauth URI format for TOTP and HOTP token generators"
+title = "One-Time Password (OTP) Credential Provisioning URI Format: otpauth"
 abbrev = "otpauth URI spec"
 ipr = "trust200902"
 area = "Internet"
@@ -30,8 +30,10 @@ organization = "independent"
 
 .# Abstract
 
-This document describes a foundational schema for the otpauth URI,
-utilized by TOTP (and/or HOTP) based authenticators.
+This document specify the One-Time Password (OTP) Credential
+Provisioning otpauth URI format, utilized by TOTP (Time-Based One-Time
+Password Algorithm) and HOTP (An HMAC-Based One-Time Password
+Algorithm) based authenticators.
 
 {mainmatter}
 
