@@ -3,7 +3,7 @@
 <rfc version="3" ipr="trust200902" docName="draft-linuxgemini-otpauth-uri-02" submissionType="IETF" category="info" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" indexInclude="true">
 
 <front>
-<title abbrev="otpauth URI spec">Usage specification of the otpauth URI format for TOTP and HOTP token generators</title><seriesInfo value="draft-linuxgemini-otpauth-uri-02" stream="IETF" status="informational" name="RFC"></seriesInfo>
+<title abbrev="otpauth URI spec">One-Time Password (OTP) Credential Provisioning URI Format: otpauth</title><seriesInfo value="draft-linuxgemini-otpauth-uri-02" stream="IETF" status="informational" name="RFC"></seriesInfo>
 <author initials="I. Y." surname="Eroglu" fullname="Ilteris Yagiztegin Eroglu"><organization>independent</organization><address><postal><street></street>
 <country>TR</country>
 <region>Ankara</region>
@@ -19,8 +19,10 @@
 <keyword>hotp</keyword>
 
 <abstract>
-<t>This document describes a foundational schema for the otpauth URI,
-utilized by TOTP (and/or HOTP) based authenticators.</t>
+<t>This document specify the One-Time Password (OTP) Credential
+Provisioning otpauth URI format, utilized by TOTP (Time-Based One-Time
+Password Algorithm) and HOTP (An HMAC-Based One-Time Password
+Algorithm) based authenticators.</t>
 </abstract>
 
 </front>
