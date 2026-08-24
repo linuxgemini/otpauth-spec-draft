@@ -10,7 +10,7 @@ keyword = ["internet", "internet security", "otpauth", "totp", "hotp"]
 
 [seriesInfo]
 name = "RFC"
-value = "draft-linuxgemini-otpauth-uri-02"
+value = "draft-linuxgemini-otpauth-uri-03"
 stream = "IETF"
 status = "informational"
 
@@ -265,6 +265,7 @@ Terence Eden,
 The Google Authenticator Team at Google,
 Eugene Fox,
 Seonghyeon Cho,
+Simon Josefsson,
 and others (please let us know, if you've been mistakenly omitted)
 for their valuable input, feedback and general support of this work.
 
@@ -275,6 +276,10 @@ written by Terence Eden [@Edent.Mastodon.Post].
 # Document History
 
    [[ To be removed from the final specification ]]
+
+   -03
+
+   * titling change
 
    -02
 
